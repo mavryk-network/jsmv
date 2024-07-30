@@ -27,7 +27,8 @@ pub fn make_installer(
     preimages_dir: &Path,
     bridge_contract: &BridgeContract,
 ) -> Result<Vec<u8>> {
-    let root_hash = preimages::content_to_preimages(kernel_file, preimages_dir)?;
+    let kernel = std::fs::read(kernel_file).map_err(preimages::Error::ContentFile)?;
+    let root_hash = preimages::content_to_preimages(kernel, preimages_dir)?;
 
     let installer_program = OwnedConfigProgram(vec![
         // 1. Prepare kernel installer
