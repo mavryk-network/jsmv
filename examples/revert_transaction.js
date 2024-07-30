@@ -1,5 +1,5 @@
-const ADDR_1 = "tz492MCfwp9V961DhNGmKzD642uhU8j6H5nB";
-const ADDR_2 = "tz4FENGt5zkiGaHPm1ya4MgLomgkL1k7Dy7q";
+const ADDR_1 = "mv4TT7ZcSYzs7Pd9aCCqNBwuQBN71vR9sVwv";
+const ADDR_2 = "mv4V9bkX1RJwi574StVPtftGpUrbcJYYH1qi";
 const handler = async () => {
   console.log("Hello");
   const otherAddress = Ledger.selfAddress() == ADDR_1 ? ADDR_2 : ADDR_1;

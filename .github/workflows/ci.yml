@@ -9,7 +9,7 @@ env:
   DOCKER_REGISTRY: ghcr.io
   DOCKER_IMAGE_BASE: trilitech
   NETWORK: nairobinet
-  JSTZ_ROLLUP_BRIDGE_ADDRESS: KT1WVsN9Rd4v9EiZ9uunyrVAwDucKXqHv3Fy
+  JSMV_ROLLUP_BRIDGE_ADDRESS: KT1WVsN9Rd4v9EiZ9uunyrVAwDucKXqHv3Fy
 
 jobs:
   commitlint:
@@ -148,7 +148,7 @@ jobs:
             build-args: |
               MAVKIT_TAG=v18.1
               MAVKIT_PROTO=PtNairob
-              JSTZ_ROLLUP_BRIDGE_ADDRESS=KT1WVsN9Rd4v9EiZ9uunyrVAwDucKXqHv3Fy
+              JSMV_ROLLUP_BRIDGE_ADDRESS=KT1WVsN9Rd4v9EiZ9uunyrVAwDucKXqHv3Fy
           - dockerfile: ./crates/jsmv_node/Dockerfile
             image: jsmv-node
             build-args: ""
@@ -193,7 +193,7 @@ jobs:
       - name: Deploy rollup
         run: |
           ROLLUP_ADDRESS=$(docker run -v "/var/run/docker.sock":"/var/run/docker.sock" \
-            -e NETWORK=${{ env.NETWORK }} -e OPERATOR_SK=${{ secrets.JSTZ_ROLLUP_OPERATOR_SK }} -e JSTZ_ROLLUP_BRIDGE_ADDRESS=${{ env.JSTZ_ROLLUP_BRIDGE_ADDRESS }} \
+            -e NETWORK=${{ env.NETWORK }} -e OPERATOR_SK=${{ secrets.JSMV_ROLLUP_OPERATOR_SK }} -e JSMV_ROLLUP_BRIDGE_ADDRESS=${{ env.JSMV_ROLLUP_BRIDGE_ADDRESS }} \
             ${{ needs.build-docker.outputs.jsmv-rollup }} \
             deploy |
             grep -oE "sr1[a-zA-Z0-9]{33}" | 

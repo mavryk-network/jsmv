@@ -57,7 +57,7 @@ Additionally, `jsmv` provide implementation of many standard web APIs in the `js
 
 ## Bridge
 
-In order to transfer ctez from L1 address to an L2 address in `jsmv`, `jsmv` implements a simple ticket-based bridge smart contract built with LIGO. This contract enables users to deposit ctez from an L1 address (`tz1`/`KT1`) to a jsmv address (`tz4`).
+In order to transfer ctez from L1 address to an L2 address in `jsmv`, `jsmv` implements a simple ticket-based bridge smart contract built with LIGO. This contract enables users to deposit ctez from an L1 address (`mv1`/`KT1`) to a jsmv address (`mv4`).
 
 ## Getting Started
 

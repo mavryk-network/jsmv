@@ -3,11 +3,11 @@
 This is a simple FA2 smart function that allows users to:
 
 - Mint new tokens 🪙
-- Transfer tokens between `tz4` accounts 🤝
-- Get the token balance of a `tz4` account 💰
+- Transfer tokens between `mv4` accounts 🤝
+- Get the token balance of a `mv4` account 💰
 - Manage operators 🧑‍🤝‍🧑
 
-Our implementation follows the TZIP-12 [specification](https://tzip.tezosagora.org/proposal/tzip-12/) with the following deviations:
+Our implementation follows the MVIP-12 [specification](https://tzip.tezosagora.org/proposal/tzip-12/) with the following deviations:
 
 - The `balance_of` entrypoint does not take a `callback` parameter. Instead, it returns the balance directly in a `Response` object.
 
@@ -26,8 +26,8 @@ To deploy the smart function, run:
 
 ```sh
 cargo run -- start sandbox
-tz4=tz492MCfwp9V961DhNGmKzD642uhU8j6H5nB
-cargo run -- deploy --self-address $tz4 --balance 0 --function-code "$(cat dist/index.js)"
+mv4=mv4TT7ZcSYzs7Pd9aCCqNBwuQBN71vR9sVwv
+cargo run -- deploy --self-address $mv4 --balance 0 --function-code "$(cat dist/index.js)"
 ```
 
 ## Demo
@@ -49,8 +49,8 @@ To deploy and run, execute:
 
 ```sh
 npm run build:test
-fa2=tz4...
-cargo run -- deploy --self-address $tz4 --balance 0 --function-code "$(cat dist/test/index.js)"
-scenario=tz4...
-cargo run -- run "mavryk://$scenario/?fa2=$fa2" $tz4
+fa2=mv4...
+cargo run -- deploy --self-address $mv4 --balance 0 --function-code "$(cat dist/test/index.js)"
+scenario=mv4...
+cargo run -- run "mavryk://$scenario/?fa2=$fa2" $mv4
 ```

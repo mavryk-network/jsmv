@@ -14,7 +14,7 @@ use mavkit::{MavkitClient, MavkitRollupNode, MavkitThread};
 use serde::{Deserialize, Serialize};
 use mavryk_crypto_rs::hash::{ContractKt1Hash, ContractMv1Hash, SmartRollupHash};
 
-const JSTZ_ROLLUP_OPERATOR_ALIAS: &str = "jsmv_rollup_operator";
+const JSMV_ROLLUP_OPERATOR_ALIAS: &str = "jsmv_rollup_operator";
 
 #[derive(Debug, Serialize, Deserialize)]
 struct Config {
@@ -50,7 +50,7 @@ struct Alias(String);
 
 impl From<Option<String>> for Alias {
     fn from(value: Option<String>) -> Self {
-        Self(value.unwrap_or(JSTZ_ROLLUP_OPERATOR_ALIAS.to_string()))
+        Self(value.unwrap_or(JSMV_ROLLUP_OPERATOR_ALIAS.to_string()))
     }
 }
 
@@ -79,8 +79,8 @@ impl FromStr for Mv1AddressOrAlias {
     type Err = anyhow::Error;
 
     fn from_str(address_or_alias: &str) -> Result<Self> {
-        if address_or_alias.starts_with("tz1") {
-            // SAFETY: address_or_alias is known to be a tz1 address
+        if address_or_alias.starts_with("mv1") {
+            // SAFETY: address_or_alias is known to be a mv1 address
             Ok(Self::Address(address_or_alias.parse()?))
         } else {
             Ok(Self::Alias(address_or_alias.to_string()))
@@ -106,8 +106,8 @@ impl TryFrom<Option<ContractMv1Hash>> for OperatorAddress {
     fn try_from(value: Option<ContractMv1Hash>) -> Result<Self> {
         let address = match value {
             Some(address) => address,
-            None => env::var("JSTZ_ROLLUP_OPERATOR_ADDRESS").map_err(|_| {
-                anyhow!("Missing address. Please set JSTZ_ROLLUP_ADDRESS or pass --address <ADDRESS>")
+            None => env::var("JSMV_ROLLUP_OPERATOR_ADDRESS").map_err(|_| {
+                anyhow!("Missing address. Please set JSMV_ROLLUP_ADDRESS or pass --address <ADDRESS>")
             })?.parse()?,
         };
 
@@ -125,16 +125,16 @@ impl TryFrom<Option<Mv1AddressOrAlias>> for Operator {
         match address_or_alias {
             Some(address_or_alias) => Ok(Self(address_or_alias)),
             None => {
-                if let Ok(address) = env::var("JSTZ_ROLLUP_OPERATOR_ADDRESS") {
+                if let Ok(address) = env::var("JSMV_ROLLUP_OPERATOR_ADDRESS") {
                     return Ok(Self(Mv1AddressOrAlias::Address(address.parse()?)));
                 }
 
-                if let Ok(alias) = env::var("JSTZ_ROLLUP_OPERATOR") {
+                if let Ok(alias) = env::var("JSMV_ROLLUP_OPERATOR") {
                     return Ok(Self(Mv1AddressOrAlias::Alias(alias)));
                 }
 
                 Ok(Self(Mv1AddressOrAlias::Alias(
-                    JSTZ_ROLLUP_OPERATOR_ALIAS.to_string(),
+                    JSMV_ROLLUP_OPERATOR_ALIAS.to_string(),
                 )))
             }
         }
@@ -159,7 +159,7 @@ enum OperatorCommand {
     },
     Info {
         #[arg(long, value_name = "ADDRESS|ALIAS")]
-        /// tz1 for the operator key
+        /// mv1 for the operator key
         operator: Option<Mv1AddressOrAlias>,
     },
     ImportKeys {
@@ -190,7 +190,7 @@ enum Command {
     },
     DeployBridge {
         #[arg(long, value_name = "ADDRESS")]
-        /// tz1 address of the operator
+        /// mv1 address of the operator
         operator: Option<ContractMv1Hash>,
         #[arg(long, value_name = "PATH")]
         /// Path to the bootstrap accounts file
@@ -198,7 +198,7 @@ enum Command {
     },
     Deploy {
         #[arg(long, value_name = "ADDRESS|ALIAS")]
-        /// tz1 address/alias of the operator
+        /// mv1 address/alias of the operator
         operator: Option<Mv1AddressOrAlias>,
         #[arg(long, value_name = "PATH")]
         /// Path to the kernel .wasm file
@@ -212,7 +212,7 @@ enum Command {
     },
     DeployInstaller {
         #[arg(long, value_name = "ADDRESS|ALIAS")]
-        /// tz1 address/alias of the operator
+        /// mv1 address/alias of the operator
         operator: Option<Mv1AddressOrAlias>,
         #[arg(long, value_name = "PATH")]
         /// Path to the installer.wasm file
@@ -223,7 +223,7 @@ enum Command {
     },
     Run {
         #[arg(long, value_name = "ADDRESS|ALIAS")]
-        /// tz1 address/alias of the operator
+        /// mv1 address/alias of the operator
         operator: Option<Mv1AddressOrAlias>,
         #[arg(long, value_name = "PATH")]
         /// Path to the preimages directory
@@ -430,7 +430,7 @@ fn main() -> Result<()> {
         .merge(Json::file(
             cli.config.clone().unwrap_or(default_config_path()),
         ))
-        .merge(Env::prefixed("JSTZ_ROLLUP_"))
+        .merge(Env::prefixed("JSMV_ROLLUP_"))
         // TODO: Uncomment this once I've figured out how to merge optional CLI
         // flags with Figment
         // .merge(Serialized::defaults(cli))

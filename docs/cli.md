@@ -5,7 +5,7 @@ This guide will instruct through how to use the command line interface for `jsmv
 `jsmv` offers a number of commands to manage and test your smart functions.
 
 - [sandbox](#sandbox) - Locally deploy a sandbox environment.
-- [bridge](#bridge) - Interact with the XTZ asset bridge between Mavryk and `jsmv`.
+- [bridge](#bridge) - Interact with the XMV asset bridge between Mavryk and `jsmv`.
 - [deploy](#deploy) - Deploy your smart function.
 - [run](#run) - Run your smart function.
 - [repl](#repl) - Enter an interactive REPL for the `jsmv` runtime.
@@ -94,21 +94,21 @@ Bridge commands facilitate the interaction between L1 and L2.
 ### Usage:
 
 ```bash
-jsmv bridge deposit --from <TZ1_ADDRESS> --to <TZ4_ADDRESS> --amount <AMOUNT>
+jsmv bridge deposit --from <MV1_ADDRESS> --to <MV4_ADDRESS> --amount <AMOUNT>
 ```
 
 ### Options:
 
-- `--from (-f) <TZ1_ADDRESS>`: The L1 sandbox address or alias to withdraw from.
+- `--from (-f) <MV1_ADDRESS>`: The L1 sandbox address or alias to withdraw from.
 
-- `--to (-t) <TZ4_ADDRESS>`: The L2 sandbox address or alias to deposit to.
+- `--to (-t) <MV4_ADDRESS>`: The L2 sandbox address or alias to deposit to.
 
 - `--amount (-a) <INTEGER>`: The quantity in ctez to transfer.
 
 ### Example:
 
 ```bash
-$ jsmv bridge deposit --from tz1faswCTDciRzE4oJ9jn2Vm2dvjeyA9fUzU --to tz4N7y3T2e2dfCyHB1Ama68jnt3Fps7Ufu6d --amount 57
+$ jsmv bridge deposit --from mv1TxMEnmav51G1Hwcib1rBnBeniDMgG8nkJ --to mv4aXtj1qe8kQKcZADtYNALcnG91dEUVmb44 --amount 57
 ```
 
 ## Deploy
@@ -132,7 +132,7 @@ jsmv deploy --self-address <SELF_ADDRESS> --function-code <FUNCTION_CODE> --bala
 ### Example
 
 ```bash
-$ jsmv deploy --self-address tz4CNucLU82UYRcnkGvk1UWmVdVdj8AfDzvU --function-code "$(cat examples/counter.js)" --balance 42
+$ jsmv deploy --self-address mv4cF2zeWLKcLUoZ9nNDQWFWJEqu13F4cCJh --function-code "$(cat examples/counter.js)" --balance 42
 ```
 
 ## Run
@@ -159,11 +159,11 @@ jsmv run [OPTIONS] <URL> <referrer>
 ### Example
 
 ```bash
-$ export counter=tz4CYGgcFtphw3AXS2Mx2CMmfj6voV5mPc9b # Address of the previously deployed contract examples/counter.js
-$ cargo run -- run "mavryk://${counter}/"  tz4CNucLU82UYRcnkGvk1UWmVdVdj8AfDzvU
-$ cargo run -- run "mavryk://${counter}/"  tz4CNucLU82UYRcnkGvk1UWmVdVdj8AfDzvU
-$ cargo run -- run "mavryk://${counter}/"  tz4CNucLU82UYRcnkGvk1UWmVdVdj8AfDzvU
-$ cargo run -- run "mavryk://${counter}/"  tz4CNucLU82UYRcnkGvk1UWmVdVdj8AfDzvU
+$ export counter=mv4cF2zeWLKcLUoZ9nNDQWFWJEqu13F4cCJh # Address of the previously deployed contract examples/counter.js
+$ cargo run -- run "mavryk://${counter}/"  mv4cF2zeWLKcLUoZ9nNDQWFWJEqu13F4cCJh
+$ cargo run -- run "mavryk://${counter}/"  mv4cF2zeWLKcLUoZ9nNDQWFWJEqu13F4cCJh
+$ cargo run -- run "mavryk://${counter}/"  mv4cF2zeWLKcLUoZ9nNDQWFWJEqu13F4cCJh
+$ cargo run -- run "mavryk://${counter}/"  mv4cF2zeWLKcLUoZ9nNDQWFWJEqu13F4cCJh
 ```
 
 In the logs, you should be able to see an output of the counter smart function looking like this:
@@ -193,9 +193,9 @@ jsmv repl [OPTIONS]
 
 ```bash
 $ jsmv repl
-$ Using mock self-address tz4RepLRepLRepLRepLRepLRepLRepN7Cu8j.
+$ Using mock self-address mv4RepLRepLRepLRepLRepLRepLRepN7Cu8j.
 $ >> const subcontract1 = Contract.create(`export default (() => { return Response.json({ message: "hello world" }); });`)
-$ [📜] Contract created: tz4JGZp7XEojgrpnzL8UdTi3Kn4NaPRVQNwS
+$ [📜] Contract created: mv4QMPii1AkrWLrFpmwhv8aq4Q2U5Uoype8Q
 $ >> const response = subcontract1.then(address => Contract.call(new Request(`mavryk://${address}/`)))
 $ Evaluating: "export default (() => { return Response.json({ message: \"hello world\" }); });"
 $ >> response.then(async response => console.log((await response.json()).message))

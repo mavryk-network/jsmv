@@ -5,8 +5,8 @@ use serde::{Deserialize, Serialize};
 
 use crate::context::account::Address;
 
-pub const REQUEST_START_PREFIX: &str = "[JSTZ:SMART_FUNCTION:REQUEST_START] ";
-pub const REQUEST_END_PREFIX: &str = "[JSTZ:SMART_FUNCTION:REQUEST_END] ";
+pub const REQUEST_START_PREFIX: &str = "[JSMV:SMART_FUNCTION:REQUEST_START] ";
+pub const REQUEST_END_PREFIX: &str = "[JSMV:SMART_FUNCTION:REQUEST_END] ";
 
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(tag = "type")]

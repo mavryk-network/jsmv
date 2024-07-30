@@ -10,28 +10,28 @@ The `jsmv` _bridge_ implements a bridge protocol that allows to transfer fungibl
 
 ## Quick Start
 
-The `jsmv` CLI empowers you to effortlessly transfer assets between a Mavryk address (`tz1`) and a `jsmv` L2 address (`tz4`) using the provided `bridge` commands.
+The `jsmv` CLI empowers you to effortlessly transfer assets between a Mavryk address (`mv1`) and a `jsmv` L2 address (`mv4`) using the provided `bridge` commands.
 
 To deposit assets from a Mavryk address to a `jsmv` L2 address, run the following command:
 
 ```bash
-jsmv bridge deposit --from <TZ1_ADDRESS/ALIAS> --to <TZ4_ADDRESS/ALIAS> --amount <AMOUNT>
+jsmv bridge deposit --from <MV1_ADDRESS/ALIAS> --to <MV4_ADDRESS/ALIAS> --amount <AMOUNT>
 ```
 
-Replace `<TZ1_ADDRESS/ALIAS>` with the source Mavryk address or alias (managed by `mavkit-client`), `<TZ4_ADDRESS/ALIAS>` with the destination `jsmv` address, and `<AMOUNT>` with the quantity of CTEZ to deposit.
+Replace `<MV1_ADDRESS/ALIAS>` with the source Mavryk address or alias (managed by `mavkit-client`), `<MV4_ADDRESS/ALIAS>` with the destination `jsmv` address, and `<AMOUNT>` with the quantity of CTEZ to deposit.
 
 For example, running:
 
 ```bash
-jsmv bridge deposit --from tz1faswCTDciRzE4oJ9jn2Vm2dvjeyA9fUzU \
-    --to tz4N7y3T2e2dfCyHB1Ama68jnt3Fps7Ufu6d \
+jsmv bridge deposit --from mv1TxMEnmav51G1Hwcib1rBnBeniDMgG8nkJ \
+    --to mv4aXtj1qe8kQKcZADtYNALcnG91dEUVmb44 \
     --amount 42
 ```
 
-sucessfully deposits 42 CTEZ from `tz1faswCTDciRzE4oJ9jn2Vm2dvjeyA9fUzU` to the `tz4N7y3T2e2dfCyHB1Ama68jnt3Fps7Ufu6d` `jsmv` address, outputting:
+sucessfully deposits 42 CTEZ from `mv1TxMEnmav51G1Hwcib1rBnBeniDMgG8nkJ` to the `mv4aXtj1qe8kQKcZADtYNALcnG91dEUVmb44` `jsmv` address, outputting:
 
 ```
-Deposited 42 CTEZ to tz4N7y3T2e2dfCyHB1Ama68jnt3Fps7Ufu6d
+Deposited 42 CTEZ to mv4aXtj1qe8kQKcZADtYNALcnG91dEUVmb44
 ```
 
 ## How it Works?

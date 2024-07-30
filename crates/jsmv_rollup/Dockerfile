@@ -14,11 +14,11 @@ COPY . .
 # https://github.com/rust-lang/rust/pull/58575#issuecomment-496026747
 RUN RUSTFLAGS='-C target-feature=-crt-static' cargo build --package jsmv_rollup --release
 # Build jsmv kernel
-ARG JSTZ_ROLLUP_BRIDGE_ADDRESS
+ARG JSMV_ROLLUP_BRIDGE_ADDRESS
 RUN CC=clang cargo build --package jsmv_kernel --release --target wasm32-unknown-unknown
 RUN /target/release/jsmv-rollup make-installer \
     --kernel /target/wasm32-unknown-unknown/release/jsmv_kernel.wasm \
-    --bridge "$JSTZ_ROLLUP_BRIDGE_ADDRESS" \
+    --bridge "$JSMV_ROLLUP_BRIDGE_ADDRESS" \
     --output /root/installer
 
 FROM alpine AS node

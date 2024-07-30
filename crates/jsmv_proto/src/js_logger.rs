@@ -9,7 +9,7 @@ use serde::Serialize;
 use crate::api::TraceData;
 use crate::context::account::Address;
 
-pub const LOG_PREFIX: &str = "[JSTZ:SMART_FUNCTION:LOG] ";
+pub const LOG_PREFIX: &str = "[JSMV:SMART_FUNCTION:LOG] ";
 
 #[derive(Serialize, Deserialize)]
 pub struct LogRecord {

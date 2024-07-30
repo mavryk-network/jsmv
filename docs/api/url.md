@@ -11,9 +11,9 @@ let url: URL = new URL(`mavryk://${my_contract.address}/entrypoint`);
 let url2: URL = new URL("../entrypoint_2", url.href);
 ```
 
-Each `jsmv` smart function is assigned a unique address, akin to an IP address, starting with `tz4` when the function is deployed.
+Each `jsmv` smart function is assigned a unique address, akin to an IP address, starting with `mv4` when the function is deployed.
 To decode these addresses, `jsmv` employs its own URL scheme `mavryk://`.
-An example URL for a `jsmv` smart function would therefore be `mavryk://tz4w42Gt5zkiGaHPm1ya4MgLomgkL1k7Dy7q/`.
+An example URL for a `jsmv` smart function would therefore be `mavryk://mv4hCM16aTzRBYKFNUgmGhzj8CuuxyV3dv2h/`.
 
 It's important to note that if the base URL or the resulting URL is not valid, the constructor will raise a `TypeError` exception.
 To check whether URLs can be parsed correctly, you can use the static method [`URL.canParse()`](#canParse).
@@ -31,11 +31,11 @@ if (URL.canParse(relativePath, baseUrl)) {
 You can also modify a URL by setting its properties.
 
 ```typescript
-let url = new URL("mavryk://tz4FakeFakeFakeFakeFakeFakeFakeDDy7q/"); // not a valid address, we'll have to change it
+let url = new URL("mavryk://mv4FakeFakeFakeFakeFakeFakeFakeDDy7q/"); // not a valid address, we'll have to change it
 url.hostname = Ledger.selfAddress;
 url.pathname = "accounts";
 url.hash = "#id";
-console.log(url.href); // mavryk://tz4../accounts#id
+console.log(url.href); // mavryk://mv4../accounts#id
 ```
 
 The [`URLSearchParams`](./url_search_params.md) API may be used to build and manipulate search parameters. To get the search parameters from the URL, you can make use of the `.searchParams` instance property.
@@ -76,7 +76,7 @@ The host, a string containing the hostname (see below), followed by a ':' and th
 
 ### `hostname: string`
 
-The hostname of the URL. In `jsmv` this will usually be a `tz4` address of a smart function.
+The hostname of the URL. In `jsmv` this will usually be a `mv4` address of a smart function.
 
 ### `href: string` {#href}
 

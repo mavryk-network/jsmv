@@ -1,5 +1,5 @@
 { parameter
-    (or (pair %deposit (nat %amount) (bytes %tz4_address)) (address %set_rollup)) ;
+    (or (pair %deposit (nat %amount) (bytes %mv4_address)) (address %set_rollup)) ;
   storage (pair (address %ctez_contract) (option %rollup address)) ;
   code { UNPAIR ;
          IF_LEFT

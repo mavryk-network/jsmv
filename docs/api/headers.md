@@ -29,11 +29,11 @@ console.log(authHeader); // "Bearer 123456789"
 
 ## Referer
 
-The `Referer` header is a special header that is automatically set by `jsmv` when it makes a request. The value of the `Referer` header is the `tz4` address of the smart function (or account) that made the request.
+The `Referer` header is a special header that is automatically set by `jsmv` when it makes a request. The value of the `Referer` header is the `mv4` address of the smart function (or account) that made the request.
 
 ```typescript
 async function handler(request: Request): Promise<Response> {
-    const referer = request.headers.get("Referer"); // "tz4..."
+    const referer = request.headers.get("Referer"); // "mv4..."
     ...
 }
 ```

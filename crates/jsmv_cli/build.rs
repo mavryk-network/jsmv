@@ -10,7 +10,7 @@ use std::{
     path::{Path, PathBuf},
 };
 
-const JSTZ_KERNEL_PATH: &str = "./jsmv_kernel.wasm";
+const JSMV_KERNEL_PATH: &str = "./jsmv_kernel.wasm";
 
 const SANDBOX_PARAMS_PATH: &str = "./sandbox-params.json";
 
@@ -30,7 +30,7 @@ fn generate_code(out_dir: &Path) {
     let mut code = String::new();
 
     code.push_str(&generate_path_getter_code(
-        "JSTZ_KERNEL",
+        "JSMV_KERNEL",
         &out_dir.join("jsmv_kernel.wasm"),
     ));
     code.push_str(&generate_path_getter_code(
@@ -46,14 +46,14 @@ fn generate_code(out_dir: &Path) {
 }
 
 fn main() {
-    println!("cargo:rerun-if-changed={}", JSTZ_KERNEL_PATH);
+    println!("cargo:rerun-if-changed={}", JSMV_KERNEL_PATH);
     println!("cargo:rerun-if-changed={}", SANDBOX_PARAMS_PATH);
     println!("cargo:rerun-if-changed={}", SANDBOX_PATH);
 
     let out_dir = PathBuf::from(env::var("OUT_DIR").unwrap());
 
     // Build jsmv_kernel.wasm
-    fs::copy(JSTZ_KERNEL_PATH, out_dir.join("jsmv_kernel.wasm"))
+    fs::copy(JSMV_KERNEL_PATH, out_dir.join("jsmv_kernel.wasm"))
         .expect("Failed to copy jsmv_kernel.wasm to OUT_DIR");
 
     // Copy sandbox-params.json to out_dir

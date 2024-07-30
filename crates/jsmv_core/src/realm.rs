@@ -290,7 +290,7 @@ macro_rules! host_defined {
 }
 
 impl HostDefined {
-    pub const NAME: &'static str = "#JSTZ__HOSTDEFINED";
+    pub const NAME: &'static str = "#JSMV__HOSTDEFINED";
 
     pub(crate) fn init(self, context: &mut Context<'_>) {
         let host_defined = ObjectInitializer::with_native(self, context).build();

@@ -1,13 +1,13 @@
-const SELF = "tz492MCfwp9V961DhNGmKzD642uhU8j6H5nB";
-const OTHER = "tz4FENGt5zkiGaHPm1ya4MgLomgkL1k7Dy7q";
+const SELF = "mv4TT7ZcSYzs7Pd9aCCqNBwuQBN71vR9sVwv";
+const OTHER = "mv4V9bkX1RJwi574StVPtftGpUrbcJYYH1qi";
 
 const logBalance = (address) => {
   console.log(`Balance of "${address}": ${Ledger.balance(address)}`);
 };
 
 const doTransfer = (n) => {
-  console.log(`Transferring ${n} XTZ from ${SELF} to ${OTHER}...`);
-  Ledger.transfer("tz4FENGt5zkiGaHPm1ya4MgLomgkL1k7Dy7q", n);
+  console.log(`Transferring ${n} XMV from ${SELF} to ${OTHER}...`);
+  Ledger.transfer("mv4V9bkX1RJwi574StVPtftGpUrbcJYYH1qi", n);
 };
 
 const doDemo = () => {

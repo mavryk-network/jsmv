@@ -6,7 +6,7 @@ module Jsmv_bridge = struct
     }
 
   type deposit = 
-    { tz4_address : bytes
+    { mv4_address : bytes
     ; amount : nat
     }
 
@@ -38,7 +38,7 @@ module Jsmv_bridge = struct
         | None -> failwith "Amount must be > 0" 
       in
       let jsmv_deposit =
-        Mavryk.transaction (deposit.tz4_address, ticket) 0mumav jsmv_rollup 
+        Mavryk.transaction (deposit.mv4_address, ticket) 0mumav jsmv_rollup 
       in
       let ctez_transfer = 
         Mavryk.transaction 

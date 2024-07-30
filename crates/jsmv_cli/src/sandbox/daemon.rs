@@ -42,11 +42,11 @@ const BOOTSTRAP_ACCOUNT_SKS: [&str; 5] = [
     "unencrypted:edsk4QLrcijEffxV31gGdN2HU7UpyJjA8drFoNcmnB28n89YjPNRFm", // bootstrap5
 ];
 
-const OPERATOR_ADDRESS: &str = "tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx"; // bootstrap1
+const OPERATOR_ADDRESS: &str = "mv18Cw7psUrAAPBpXYd9CtCpHg9EgjHP9KTe"; // bootstrap1
 
 // FIXME: Exposing this address is a hack (consistent with the current implementation)
 // In future, we should permit users to configure the L1 client address they wish to use
-pub(crate) const CLIENT_ADDRESS: &str = "tz1gjaF81ZRRvdzjobyfVNsAeSC6PScjfQwN"; // bootstrap2
+pub(crate) const CLIENT_ADDRESS: &str = "mv1V73YiKvinVumxwvYWjCZBoT44wqBNhta7"; // bootstrap2
 
 fn init_node(cfg: &Config) -> Result<()> {
     // 1. Initialize the mavkit-node configuration
@@ -196,7 +196,7 @@ fn start_sandbox(cfg: &Config) -> Result<(MavkitThread, MavkitThread, MavkitThre
 
     let preimages_dir = TempDir::with_prefix("jsmv_sandbox_preimages")?.into_path();
 
-    let installer = make_installer(Path::new(JSTZ_KERNEL_PATH), &preimages_dir, &bridge)?;
+    let installer = make_installer(Path::new(JSMV_KERNEL_PATH), &preimages_dir, &bridge)?;
     println!("done");
 
     // 7. Originate the rollup

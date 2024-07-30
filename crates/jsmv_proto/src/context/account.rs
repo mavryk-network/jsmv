@@ -195,7 +195,7 @@ mod test {
 
         let mut tx = kv.begin_transaction();
 
-        let pkh = PublicKeyHash::from_base58("tz1XQjK1b3P72kMcHsoPhnAg3dvX1n8Ainty")
+        let pkh = PublicKeyHash::from_base58("mv1NZKUgmvevRf7oZAhyWo9Qv4zbCxPqNhW7")
             .expect("Could not parse pkh");
 
         // Act

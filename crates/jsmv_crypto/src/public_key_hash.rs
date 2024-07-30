@@ -26,23 +26,23 @@ unsafe impl Trace for PublicKeyHash {
 
 impl PublicKeyHash {
     pub fn to_base58(&self) -> String {
-        let PublicKeyHash::Mv1(tz1) = self;
-        tz1.to_base58_check()
+        let PublicKeyHash::Mv1(mv1) = self;
+        mv1.to_base58_check()
     }
 
     pub fn from_base58(data: &str) -> Result<Self> {
-        let tz1 = ContractMv1Hash::from_base58_check(data)?;
-        Ok(PublicKeyHash::Mv1(tz1))
+        let mv1 = ContractMv1Hash::from_base58_check(data)?;
+        Ok(PublicKeyHash::Mv1(mv1))
     }
 
     pub fn from_slice(bytes: &[u8]) -> Result<Self> {
-        let tz1 = ContractMv1Hash::try_from_bytes(bytes)?;
-        Ok(PublicKeyHash::Mv1(tz1))
+        let mv1 = ContractMv1Hash::try_from_bytes(bytes)?;
+        Ok(PublicKeyHash::Mv1(mv1))
     }
 
     pub fn as_bytes(&self) -> &[u8] {
-        let PublicKeyHash::Mv1(tz1) = self;
-        &tz1.0
+        let PublicKeyHash::Mv1(mv1) = self;
+        &mv1.0
     }
     pub fn digest(data: &[u8]) -> Result<Self> {
         let out_len = ContractMv1Hash::hash_size();
@@ -62,7 +62,7 @@ impl TryFrom<&PublicKey> for PublicKeyHash {
 
     fn try_from(pk: &PublicKey) -> Result<Self> {
         let PublicKey::Ed25519(key) = pk;
-        let tz1 = key.pk_hash()?;
-        Ok(PublicKeyHash::Mv1(tz1))
+        let mv1 = key.pk_hash()?;
+        Ok(PublicKeyHash::Mv1(mv1))
     }
 }
