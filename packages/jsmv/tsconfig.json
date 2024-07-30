@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "types": ["@mavrykdynamics/jsmv-types"],
-  },
+    "types": ["@mavrykdynamics/jsmv-types"]
+  }
 }

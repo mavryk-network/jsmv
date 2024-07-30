@@ -20,7 +20,10 @@ pub struct MavkitNode {
 
 impl MavkitNode {
     fn command(&self) -> Command {
-        Command::new(path_or_default(self.mavkit_node_bin.as_ref(), "mavkit-node"))
+        Command::new(path_or_default(
+            self.mavkit_node_bin.as_ref(),
+            "mavkit-node",
+        ))
     }
 
     pub fn config_init(

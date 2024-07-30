@@ -1,5 +1,5 @@
-use serde::{Deserialize, Serialize};
 use mavryk_crypto_rs::PublicKeySignatureVerifier;
+use serde::{Deserialize, Serialize};
 
 use crate::{public_key::PublicKey, Error, Result};
 

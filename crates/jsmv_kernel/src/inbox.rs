@@ -1,7 +1,5 @@
 use jsmv_crypto::public_key_hash::PublicKeyHash;
 use jsmv_proto::operation::{external::Deposit, ExternalOperation, SignedOperation};
-use num_traits::ToPrimitive;
-use serde::{Deserialize, Serialize};
 use mavryk_crypto_rs::hash::ContractKt1Hash;
 use mavryk_smart_rollup::{
     inbox::{InboxMessage, InternalInboxMessage, Transfer},
@@ -9,6 +7,8 @@ use mavryk_smart_rollup::{
     prelude::{debug_msg, Runtime},
     types::Contract,
 };
+use num_traits::ToPrimitive;
+use serde::{Deserialize, Serialize};
 
 pub type ExternalMessage = SignedOperation;
 pub type InternalMessage = ExternalOperation;

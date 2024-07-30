@@ -11,8 +11,8 @@ use jsmv_rollup::{
     deploy_ctez_contract, rollup, BootstrapAccount, BridgeContract, JsmvRollup,
 };
 use mavkit::{MavkitClient, MavkitRollupNode, MavkitThread};
-use serde::{Deserialize, Serialize};
 use mavryk_crypto_rs::hash::{ContractKt1Hash, ContractMv1Hash, SmartRollupHash};
+use serde::{Deserialize, Serialize};
 
 const JSMV_ROLLUP_OPERATOR_ALIAS: &str = "jsmv_rollup_operator";
 

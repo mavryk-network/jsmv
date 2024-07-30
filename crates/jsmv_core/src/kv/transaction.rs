@@ -4,8 +4,8 @@ use std::{
 };
 
 use boa_gc::{empty_trace, Finalize, Trace};
-use serde::de::DeserializeOwned;
 use mavryk_smart_rollup_host::{path::OwnedPath, runtime::Runtime};
+use serde::de::DeserializeOwned;
 
 use crate::error::Result;
 

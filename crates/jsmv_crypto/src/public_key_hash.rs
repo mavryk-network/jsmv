@@ -1,12 +1,12 @@
 use std::fmt;
 
 use boa_gc::{empty_trace, Finalize, Trace};
-use serde::{Deserialize, Serialize};
 use mavryk_crypto_rs::{
     blake2b::digest,
     hash::{ContractMv1Hash, HashTrait},
     PublicKeyWithHash,
 };
+use serde::{Deserialize, Serialize};
 
 use crate::{
     error::{Error, Result},

@@ -15,8 +15,8 @@ use jsmv_core::{
     runtime::{self, with_global_host},
     Module, Realm,
 };
-use std::io::Read;
 use mavryk_smart_rollup::prelude::debug_msg;
+use std::io::Read;
 
 use crate::{
     api::{self, TraceData},

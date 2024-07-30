@@ -5,12 +5,12 @@
 use std::collections::BTreeSet;
 
 use boa_gc::{empty_trace, Finalize, Trace};
-use serde::de::DeserializeOwned;
 use mavryk_smart_rollup_host::runtime::ValueType;
 use mavryk_smart_rollup_host::{
     path::{OwnedPath, Path},
     runtime::Runtime,
 };
+use serde::de::DeserializeOwned;
 
 use crate::error::Result;
 

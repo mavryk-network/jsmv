@@ -1,5 +1,5 @@
-use serde::{Deserialize, Serialize};
 use mavryk_crypto_rs::hash::SecretKeyEd25519;
+use serde::{Deserialize, Serialize};
 
 use crate::{error::Result, signature::Signature};
 

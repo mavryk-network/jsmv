@@ -243,7 +243,9 @@ impl Config {
         let sandbox = self.sandbox()?;
 
         Ok(MavkitRollupNode {
-            mavkit_rollup_node_bin: Some(self.mavkit_path.join("mavkit-smart-rollup-node")),
+            mavkit_rollup_node_bin: Some(
+                self.mavkit_path.join("mavkit-smart-rollup-node"),
+            ),
             mavkit_rollup_node_dir: sandbox.mavkit_rollup_node_dir.clone(),
             mavkit_client_dir: sandbox.mavkit_client_dir.clone(),
             endpoint: format!("http://127.0.0.1:{}", sandbox.mavkit_node_rpc_port),

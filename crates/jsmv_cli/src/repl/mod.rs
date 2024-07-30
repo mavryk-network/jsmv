@@ -13,6 +13,7 @@ use jsmv_core::{
     runtime::{self, Runtime},
 };
 use jsmv_proto::api::{ContractApi, LedgerApi};
+use mavryk_smart_rollup_mock::MockHost;
 use rustyline::{
     completion::Completer, error::ReadlineError, highlight::Highlighter, hint::Hinter,
     validate::Validator, Editor, Helper,
@@ -22,7 +23,6 @@ use syntect::{
     highlighting::{Style, Theme, ThemeSet},
     parsing::{SyntaxReference, SyntaxSet},
 };
-use mavryk_smart_rollup_mock::MockHost;
 
 use crate::config::Config;
 

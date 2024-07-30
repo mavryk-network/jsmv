@@ -2,9 +2,12 @@ const handler = async () => {
   try {
     // Constructor 1
     {
-      const oldRequest = new Request("mavryk://github.tez/mavryk/issues/12959", {
-        headers: { From: "webmaster@example.org" },
-      });
+      const oldRequest = new Request(
+        "mavryk://github.tez/mavryk/issues/12959",
+        {
+          headers: { From: "webmaster@example.org" },
+        },
+      );
       console.log(
         `Actual: ${oldRequest.headers.get(
           "From",

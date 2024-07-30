@@ -4,7 +4,8 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   titleTemplate: false,
   title: "👨‍⚖️ jsmv",
-  description: "A JavaScript runtime powered by Mavryk smart optimistic rollups",
+  description:
+    "A JavaScript runtime powered by Mavryk smart optimistic rollups",
   lang: "en-US",
   head: [
     [

@@ -5,8 +5,8 @@ use jsmv_core::{
 };
 use jsmv_crypto::public_key_hash::PublicKeyHash;
 
-use serde::{Deserialize, Serialize};
 use mavryk_smart_rollup::storage::path::{self, OwnedPath, RefPath};
+use serde::{Deserialize, Serialize};
 
 pub type Address = PublicKeyHash;
 
