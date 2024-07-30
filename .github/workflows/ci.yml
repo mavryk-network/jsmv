@@ -7,7 +7,7 @@ on:
 
 env:
   DOCKER_REGISTRY: ghcr.io
-  DOCKER_IMAGE_BASE: trilitech
+  DOCKER_IMAGE_BASE: mavrykdynamics
   NETWORK: nairobinet
   JSMV_ROLLUP_BRIDGE_ADDRESS: KT1WVsN9Rd4v9EiZ9uunyrVAwDucKXqHv3Fy
 

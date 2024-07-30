@@ -1,7 +1,7 @@
 {
   "name": "@mavrykdynamics/jsmv",
   "description": "TypeScript SDK for jsmv 👨‍⚖️",
-  "authors": "TriliTech Ecosystems and Tools Team <contact@trili.tech>",
+  "authors": "TriliTech Ecosystems and Tools Team <contact@trili.tech>, MavrykDynamics <info@mavryk.io>",
   "version": "0.0.0",
   "main": "index.ts",
   "scripts": {

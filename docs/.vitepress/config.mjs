@@ -52,7 +52,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: "github", link: "https://github.com/trilitech/jsmv/" },
+      { icon: "github", link: "https://github.com/mavryk-network/jsmv/" },
     ],
   },
 });

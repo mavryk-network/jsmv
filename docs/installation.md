@@ -16,7 +16,7 @@ details how to install Mavkit, which is used for our local sandbox.
 ### Cloning the Repository
 
 ```sh
-git clone https://github.com/trilitech/jsmv.git
+git clone https://github.com/mavryk-network/jsmv.git
 ```
 
 ### Prerequisites 📋

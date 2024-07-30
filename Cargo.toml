@@ -17,8 +17,8 @@ members = [
 [workspace.package]
 edition = "2021"
 version = "0.1.0"
-authors = ["TriliTech <contact@trili.tech>"]
-repository = "https://github.com/trilitech/jsmv"
+authors = ["TriliTech <contact@trili.tech>" "MavrykDynamics <info@mavryk.io>"]
+repository = "https://github.com/mavryk-network/jsmv"
 
 [workspace.dependencies]
 jsmv_core = { path = "crates/jsmv_core" }

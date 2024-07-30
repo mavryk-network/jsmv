@@ -11,7 +11,7 @@ import VPButton from "vitepress/dist/client/theme-default/components/VPButton.vu
 `jsmv` (pronouced 'justice') is a JavaScript server runtime for Mavryk smart optimistic rollups
 with a great developer experience. It is built on [Boa](https://boajs.dev/) and [Rust](https://www.rust-lang.org/).
 
-`jsmv` is free and open source software under the [MIT license](https://github.com/trilitech/jsmv/blob/main/LICENSE).
+`jsmv` is free and open source software under the [MIT license](https://github.com/mavryk-network/jsmv/blob/main/LICENSE).
 
 - 🚀 **Fast**: `jsmv` is built on [Boa](https://boajs.dev/), a blazingly fast JavaScript engine written in **Rust**.
 - 📚 **Easy to Learn**: `jsmv` is built with the developer in mind.
