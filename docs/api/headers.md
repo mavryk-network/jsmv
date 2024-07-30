@@ -1,9 +1,9 @@
 # 📰 Headers
 
-`jstz`'s [`Headers`](https://developer.mozilla.org/en-US/docs/Web/API/Headers) implementation is based on the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) specification. This API permits you to manipulate and inspect HTTP request and response headers.
+`jsmv`'s [`Headers`](https://developer.mozilla.org/en-US/docs/Web/API/Headers) implementation is based on the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) specification. This API permits you to manipulate and inspect HTTP request and response headers.
 
 ::: danger
-⚠️ `jstz`'s implementation is not spec compliant ⚠️
+⚠️ `jsmv`'s implementation is not spec compliant ⚠️
 :::
 
 ## Quick Start
@@ -29,7 +29,7 @@ console.log(authHeader); // "Bearer 123456789"
 
 ## Referer
 
-The `Referer` header is a special header that is automatically set by `jstz` when it makes a request. The value of the `Referer` header is the `tz4` address of the smart function (or account) that made the request.
+The `Referer` header is a special header that is automatically set by `jsmv` when it makes a request. The value of the `Referer` header is the `tz4` address of the smart function (or account) that made the request.
 
 ```typescript
 async function handler(request: Request): Promise<Response> {

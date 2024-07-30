@@ -15,7 +15,7 @@
 
 ```sh
 nix develop
-cargo run --bin jstz -- repl
+cargo run --bin jsmv -- repl
 >> <!-- Provide reviewers with example usages of the Runtime API -->
 ```
 

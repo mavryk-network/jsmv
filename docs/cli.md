@@ -1,45 +1,45 @@
-# 💻 CLI for `jstz`
+# 💻 CLI for `jsmv`
 
-This guide will instruct through how to use the command line interface for `jstz` where the user can easily run the sandbox environment and test smart functions.
+This guide will instruct through how to use the command line interface for `jsmv` where the user can easily run the sandbox environment and test smart functions.
 
-`jstz` offers a number of commands to manage and test your smart functions.
+`jsmv` offers a number of commands to manage and test your smart functions.
 
 - [sandbox](#sandbox) - Locally deploy a sandbox environment.
-- [bridge](#bridge) - Interact with the XTZ asset bridge between Tezos and `jstz`.
+- [bridge](#bridge) - Interact with the XTZ asset bridge between Mavryk and `jsmv`.
 - [deploy](#deploy) - Deploy your smart function.
 - [run](#run) - Run your smart function.
-- [repl](#repl) - Enter an interactive REPL for the `jstz` runtime.
+- [repl](#repl) - Enter an interactive REPL for the `jsmv` runtime.
 
 ::: tip
 
-- `jstz help`: Displays a general help message or help information for specific subcommands.
+- `jsmv help`: Displays a general help message or help information for specific subcommands.
 
-- `jstz --version (-V)`: Displays the current version of `jstz`.
+- `jsmv --version (-V)`: Displays the current version of `jsmv`.
 
 :::
 
 # Setup config
 
-In order to run `jstz` cli, you need to create a setup file in `~/.jstz/config.json` that looks as follows:
+In order to run `jsmv` cli, you need to create a setup file in `~/.jsmv/config.json` that looks as follows:
 
 ```json
 {
-  "jstz_path": "<path_to_jstz>",
-  "octez_path": "<path_to_octez>",
-  "octez_node_port": <octez_node_port_number>, # typically 18731
-  "octez_node_rpc_port": <octez_node_rpc_port_number>, # typically 18730
+  "jsmv_path": "<path_to_jsmv>",
+  "mavkit_path": "<path_to_mavkit>",
+  "mavkit_node_port": <mavkit_node_port_number>, # typically 18731
+  "mavkit_node_rpc_port": <mavkit_node_rpc_port_number>, # typically 18730
   "sandbox": null
 }
 ```
 
-In the file, you should set your path to `jstz` and `octez` and also set the port numbers.
+In the file, you should set your path to `jsmv` and `mavkit` and also set the port numbers.
 Once the sandbox gets started with the `sandbox start` command, the `"sandbox"` property will contain the information about its run.
 
 # Commands
 
 ## Sandbox
 
-The sandbox commands are responsible for managing the `jstz` sandbox environment.
+The sandbox commands are responsible for managing the `jsmv` sandbox environment.
 
 ### Commands:
 
@@ -51,10 +51,10 @@ The sandbox commands are responsible for managing the `jstz` sandbox environment
 
 ```bash
 # Terminal #1:
-$ jstz sandbox start
+$ jsmv sandbox start
 $
 $ Configuring sandbox... done
-$ Initializing octez-node configuration... done
+$ Initializing mavkit-node configuration... done
 $ Generating identity... done
 $ Starting node... done
 $ Waiting for node to initialize.... done
@@ -69,18 +69,18 @@ $ Importing account bootstrap5:unencrypted:edsk4QLrcijEffxV31gGdN2HU7UpyJjA8drFo
 $ Client initialized
 $ Starting baker... done
 $ Deploying bridge...
-$         `jstz_bridge` deployed at KT1Qc6k3U3EYmQBEZfB58zt69wk5PFzy4XXM
+$         `jsmv_bridge` deployed at KT1Qc6k3U3EYmQBEZfB58zt69wk5PFzy4XXM
 $ Creating installer kernel...done
-$ `jstz_rollup` originated at sr1UXVmFED596weKjgPCN8GgWhRrfDGMPxH9
+$ `jsmv_rollup` originated at sr1UXVmFED596weKjgPCN8GgWhRrfDGMPxH9
 $ Starting rollup node... done
-$         `jstz_bridge` `rollup` address set to sr1UXVmFED596weKjgPCN8GgWhRrfDGMPxH9
+$         `jsmv_bridge` `rollup` address set to sr1UXVmFED596weKjgPCN8GgWhRrfDGMPxH9
 $ Bridge deployed
 $ Sandbox started 🎉
 $ Saving sandbox config
 
 # Terminal #2:
 $ # Work with the sandbox ...
-$ jstz sandbox stop
+$ jsmv sandbox stop
 ```
 
 ## Bridge
@@ -94,7 +94,7 @@ Bridge commands facilitate the interaction between L1 and L2.
 ### Usage:
 
 ```bash
-jstz bridge deposit --from <TZ1_ADDRESS> --to <TZ4_ADDRESS> --amount <AMOUNT>
+jsmv bridge deposit --from <TZ1_ADDRESS> --to <TZ4_ADDRESS> --amount <AMOUNT>
 ```
 
 ### Options:
@@ -108,7 +108,7 @@ jstz bridge deposit --from <TZ1_ADDRESS> --to <TZ4_ADDRESS> --amount <AMOUNT>
 ### Example:
 
 ```bash
-$ jstz bridge deposit --from tz1faswCTDciRzE4oJ9jn2Vm2dvjeyA9fUzU --to tz4N7y3T2e2dfCyHB1Ama68jnt3Fps7Ufu6d --amount 57
+$ jsmv bridge deposit --from tz1faswCTDciRzE4oJ9jn2Vm2dvjeyA9fUzU --to tz4N7y3T2e2dfCyHB1Ama68jnt3Fps7Ufu6d --amount 57
 ```
 
 ## Deploy
@@ -118,7 +118,7 @@ This command allows users to deploy smart functions.
 ### Usage:
 
 ```bash
-jstz deploy --self-address <SELF_ADDRESS> --function-code <FUNCTION_CODE> --balance <BALANCE>
+jsmv deploy --self-address <SELF_ADDRESS> --function-code <FUNCTION_CODE> --balance <BALANCE>
 ```
 
 ### Options:
@@ -132,7 +132,7 @@ jstz deploy --self-address <SELF_ADDRESS> --function-code <FUNCTION_CODE> --bala
 ### Example
 
 ```bash
-$ jstz deploy --self-address tz4CNucLU82UYRcnkGvk1UWmVdVdj8AfDzvU --function-code "$(cat examples/counter.js)" --balance 42
+$ jsmv deploy --self-address tz4CNucLU82UYRcnkGvk1UWmVdVdj8AfDzvU --function-code "$(cat examples/counter.js)" --balance 42
 ```
 
 ## Run
@@ -142,7 +142,7 @@ Execute a smart function using a specified URL.
 ### Usage:
 
 ```bash
-jstz run [OPTIONS] <URL> <referrer>
+jsmv run [OPTIONS] <URL> <referrer>
 ```
 
 ### Arguments:
@@ -160,10 +160,10 @@ jstz run [OPTIONS] <URL> <referrer>
 
 ```bash
 $ export counter=tz4CYGgcFtphw3AXS2Mx2CMmfj6voV5mPc9b # Address of the previously deployed contract examples/counter.js
-$ cargo run -- run "tezos://${counter}/"  tz4CNucLU82UYRcnkGvk1UWmVdVdj8AfDzvU
-$ cargo run -- run "tezos://${counter}/"  tz4CNucLU82UYRcnkGvk1UWmVdVdj8AfDzvU
-$ cargo run -- run "tezos://${counter}/"  tz4CNucLU82UYRcnkGvk1UWmVdVdj8AfDzvU
-$ cargo run -- run "tezos://${counter}/"  tz4CNucLU82UYRcnkGvk1UWmVdVdj8AfDzvU
+$ cargo run -- run "mavryk://${counter}/"  tz4CNucLU82UYRcnkGvk1UWmVdVdj8AfDzvU
+$ cargo run -- run "mavryk://${counter}/"  tz4CNucLU82UYRcnkGvk1UWmVdVdj8AfDzvU
+$ cargo run -- run "mavryk://${counter}/"  tz4CNucLU82UYRcnkGvk1UWmVdVdj8AfDzvU
+$ cargo run -- run "mavryk://${counter}/"  tz4CNucLU82UYRcnkGvk1UWmVdVdj8AfDzvU
 ```
 
 In the logs, you should be able to see an output of the counter smart function looking like this:
@@ -182,7 +182,7 @@ Starts a REPL environment for experimentation and testing of smart functions.
 ### Usage:
 
 ```bash
-jstz repl [OPTIONS]
+jsmv repl [OPTIONS]
 ```
 
 ### Options:
@@ -192,11 +192,11 @@ jstz repl [OPTIONS]
 ### Example
 
 ```bash
-$ jstz repl
+$ jsmv repl
 $ Using mock self-address tz4RepLRepLRepLRepLRepLRepLRepN7Cu8j.
 $ >> const subcontract1 = Contract.create(`export default (() => { return Response.json({ message: "hello world" }); });`)
 $ [📜] Contract created: tz4JGZp7XEojgrpnzL8UdTi3Kn4NaPRVQNwS
-$ >> const response = subcontract1.then(address => Contract.call(new Request(`tezos://${address}/`)))
+$ >> const response = subcontract1.then(address => Contract.call(new Request(`mavryk://${address}/`)))
 $ Evaluating: "export default (() => { return Response.json({ message: \"hello world\" }); });"
 $ >> response.then(async response => console.log((await response.json()).message))
 $ [🪵] hello world

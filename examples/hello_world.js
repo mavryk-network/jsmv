@@ -19,7 +19,7 @@ const handler = async () => {
   try {
     const newContract = await Contract.create(contractCode);
     console.log("created new contract with address", newContract);
-    const url = `tezos://sam.tez/myEndPoint`;
+    const url = `mavryk://sam.tez/myEndPoint`;
     const request = new Request(url, {
       method: "POST",
       body: "Hello from Subcontract 👋",

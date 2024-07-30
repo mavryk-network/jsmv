@@ -2,7 +2,7 @@
 
 The `TextEncoder` interface takes a stream of code points as input and emits a stream of UTF-8 bytes.
 
-::: danger ⚠️ jstz's implementation is not fully spec compliant ⚠️ :::
+::: danger ⚠️ jsmv's implementation is not fully spec compliant ⚠️ :::
 
 ## Constructor
 

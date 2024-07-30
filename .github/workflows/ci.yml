@@ -111,7 +111,7 @@ jobs:
       - run: npm ci
 
       - name: Build
-        run: cd packages/jstz && npm run build
+        run: cd packages/jsmv && npm run build
 
   build-nix:
     name: Build (Nix)
@@ -124,7 +124,7 @@ jobs:
           nix_path: nixpkgs=channel:nixos-unstable
       - uses: cachix/cachix-action@v13
         with:
-          name: trilitech-jstz
+          name: trilitech-jsmv
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
       - name: Build Shell
@@ -138,19 +138,19 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build-rust, build-sdk, build-docs]
     outputs:
-      jstz-rollup: ${{ steps.tags.outputs.tag || '' }}
+      jsmv-rollup: ${{ steps.tags.outputs.tag || '' }}
     strategy:
       matrix:
         include:
-          - dockerfile: ./crates/jstz_rollup/Dockerfile
-            image: jstz-rollup
+          - dockerfile: ./crates/jsmv_rollup/Dockerfile
+            image: jsmv-rollup
             # TODO: Figure out a way to access the global env vars in a matrix
             build-args: |
-              OCTEZ_TAG=v18.1
-              OCTEZ_PROTO=PtNairob
+              MAVKIT_TAG=v18.1
+              MAVKIT_PROTO=PtNairob
               JSTZ_ROLLUP_BRIDGE_ADDRESS=KT1WVsN9Rd4v9EiZ9uunyrVAwDucKXqHv3Fy
-          - dockerfile: ./crates/jstz_node/Dockerfile
-            image: jstz-node
+          - dockerfile: ./crates/jsmv_node/Dockerfile
+            image: jsmv-node
             build-args: ""
     steps:
       - uses: actions/checkout@v4
@@ -167,10 +167,10 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_IMAGE_BASE }}/${{ matrix.image }}
-      - # Extract tags for jstz-rollup
+      - # Extract tags for jsmv-rollup
         run: echo "tag=${{ steps.meta.outputs.tags }}" >> $GITHUB_OUTPUT
         id: tags
-        if: matrix.image == 'jstz-rollup'
+        if: matrix.image == 'jsmv-rollup'
       - name: Build and push Docker image
         uses: docker/build-push-action@v5.1.0
         with:
@@ -186,7 +186,7 @@ jobs:
   deploy-rollup:
     # We only want to deploy the rollup when a PR is merged or a push to main happens
     if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) || (github.event_name == 'push' && github.ref == 'refs/heads/main')
-    name: Deploy jstz rollup
+    name: Deploy jsmv rollup
     needs: build-docker
     runs-on: ubuntu-latest
     steps:
@@ -194,7 +194,7 @@ jobs:
         run: |
           ROLLUP_ADDRESS=$(docker run -v "/var/run/docker.sock":"/var/run/docker.sock" \
             -e NETWORK=${{ env.NETWORK }} -e OPERATOR_SK=${{ secrets.JSTZ_ROLLUP_OPERATOR_SK }} -e JSTZ_ROLLUP_BRIDGE_ADDRESS=${{ env.JSTZ_ROLLUP_BRIDGE_ADDRESS }} \
-            ${{ needs.build-docker.outputs.jstz-rollup }} \
+            ${{ needs.build-docker.outputs.jsmv-rollup }} \
             deploy |
             grep -oE "sr1[a-zA-Z0-9]{33}" | 
             uniq | 

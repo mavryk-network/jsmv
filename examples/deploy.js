@@ -13,7 +13,7 @@ export default (request) => {
     let response = await Contract.call(contract, "Hello World");
 
     await Contract.call(
-      new Request(`tezos://${subcontractAddress}/`, {
+      new Request(`mavryk://${subcontractAddress}/`, {
         method: "POST",
         body: "Hello World",
       }),

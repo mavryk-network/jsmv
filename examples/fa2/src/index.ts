@@ -1,4 +1,4 @@
-import { isAddress } from "@tezos/jstz";
+import { isAddress } from "@mavrykdynamics/jsmv";
 
 function isArray<T>(check: (item: T) => item is T, list: unknown): list is T[] {
   return (

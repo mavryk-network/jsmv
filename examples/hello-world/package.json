@@ -5,7 +5,7 @@
   "version": "0.0.0",
   "main": "fa2.ts",
   "dependencies": {
-    "@tezos/jstz": "^0.0.0"
+    "@mavrykdynamics/jsmv": "^0.0.0"
   },
   "devDependencies": {
     "esbuild": "^0.19.11"

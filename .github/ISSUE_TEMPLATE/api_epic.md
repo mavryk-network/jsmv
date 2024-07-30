@@ -2,7 +2,7 @@
 name: 🗓️ API tracking issue
 about: Ticket for tracking the implementation and documentation of an API
 title: "🗓️ Tracking: <title>"
-labels: ["tracking", jstz::api"]
+labels: ["tracking", jsmv::api"]
 assignees: ""
 ---
 

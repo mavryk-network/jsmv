@@ -1,16 +1,16 @@
 [workspace]
 resolver = "2"
 members = [
-    "crates/jstz_core",
-    "crates/jstz_api",
-    "crates/jstz_proto",
-    "crates/jstz_crypto",
-    "crates/jstz_kernel",
-    "crates/jstz_cli",
-    "crates/jstz_node",
-    "crates/jstz_wpt",
-    "crates/octez",
-    "crates/jstz_rollup",
+    "crates/jsmv_core",
+    "crates/jsmv_api",
+    "crates/jsmv_proto",
+    "crates/jsmv_crypto",
+    "crates/jsmv_kernel",
+    "crates/jsmv_cli",
+    "crates/jsmv_node",
+    "crates/jsmv_wpt",
+    "crates/mavkit",
+    "crates/jsmv_rollup",
 ]
 
 
@@ -18,72 +18,72 @@ members = [
 edition = "2021"
 version = "0.1.0"
 authors = ["TriliTech <contact@trili.tech>"]
-repository = "https://github.com/trilitech/jstz"
+repository = "https://github.com/trilitech/jsmv"
 
 [workspace.dependencies]
-jstz_core = { path = "crates/jstz_core" }
-jstz_api = { path = "crates/jstz_api" }
-jstz_kernel = { path = "crates/jstz_kernel" }
-jstz_proto = { path = "crates/jstz_proto" }
-jstz_crypto = { path = "crates/jstz_crypto" }
-jstz_node = { path = "crates/jstz_node" }
-jstz_cli = { path = "crates/jstz_cli" }
-jstz_wpt = { path = "crates/jstz_wpt" }
-octez = { path = "crates/octez" }
-jstz_rollup = { path = "crates/jstz_rollup" }
+jsmv_core = { path = "crates/jsmv_core" }
+jsmv_api = { path = "crates/jsmv_api" }
+jsmv_kernel = { path = "crates/jsmv_kernel" }
+jsmv_proto = { path = "crates/jsmv_proto" }
+jsmv_crypto = { path = "crates/jsmv_crypto" }
+jsmv_node = { path = "crates/jsmv_node" }
+jsmv_cli = { path = "crates/jsmv_cli" }
+jsmv_wpt = { path = "crates/jsmv_wpt" }
+mavkit = { path = "crates/mavkit" }
+jsmv_rollup = { path = "crates/jsmv_rollup" }
 
-[workspace.dependencies.tezos-smart-rollup]
+[workspace.dependencies.mavryk-smart-rollup]
 version = "0.2.2"
 default-features = false
 features = ["std", "crypto", "panic-hook", "data-encoding", "storage", "proto-alpha"]
 
-[workspace.dependencies.tezos-smart-rollup-host]
+[workspace.dependencies.mavryk-smart-rollup-host]
 version = "0.2.2"
 features = ["proto-alpha"]
 
-[workspace.dependencies.tezos-smart-rollup-core]
+[workspace.dependencies.mavryk-smart-rollup-core]
 version = "0.2.2"
 
-[workspace.dependencies.tezos-smart-rollup-mock]
+[workspace.dependencies.mavryk-smart-rollup-mock]
 version = "0.2.2"
 
-[workspace.dependencies.tezos-smart-rollup-encoding]
+[workspace.dependencies.mavryk-smart-rollup-encoding]
 version = "0.2.2"
 default-features = false
-features = ["alloc", "tezos-encoding", "crypto"]
+features = ["alloc", "mavryk-encoding", "crypto"]
 
-[workspace.dependencies.tezos-smart-rollup-entrypoint]
+[workspace.dependencies.mavryk-smart-rollup-entrypoint]
 version = "0.2.2"
 
-[workspace.dependencies.tezos-smart-rollup-debug]
+[workspace.dependencies.mavryk-smart-rollup-debug]
 version = "0.2.2"
 
-[workspace.dependencies.tezos-smart-rollup-panic-hook]
+[workspace.dependencies.mavryk-smart-rollup-panic-hook]
 version = "0.2.2"
 
-[workspace.dependencies.tezos-smart-rollup-storage]
+[workspace.dependencies.mavryk-smart-rollup-storage]
 version = "0.2.2"
 
-[workspace.dependencies.tezos-smart-rollup-installer-config]
+[workspace.dependencies.mavryk-smart-rollup-installer-config]
 version = "0.2.2"
 
-[workspace.dependencies.tezos-smart-rollup-installer]
+[workspace.dependencies.mavryk-smart-rollup-installer]
 version = "0.2.2"
 
-[workspace.dependencies.tezos_crypto_rs]
+[workspace.dependencies.mavryk_crypto_rs]
 version = "0.5.2"
 default-features = false
 
 [patch.crates-io]
-tezos-smart-rollup = { git = "https://gitlab.com/tezos/tezos.git" }
-tezos-smart-rollup-host = { git = "https://gitlab.com/tezos/tezos.git" }
-tezos-smart-rollup-core = { git = "https://gitlab.com/tezos/tezos.git" }
-tezos-smart-rollup-mock = { git = "https://gitlab.com/tezos/tezos.git" }
-tezos-smart-rollup-encoding = { git = "https://gitlab.com/tezos/tezos.git" }
-tezos-smart-rollup-entrypoint = { git = "https://gitlab.com/tezos/tezos.git" }
-tezos-smart-rollup-debug = { git = "https://gitlab.com/tezos/tezos.git" }
-tezos-smart-rollup-panic-hook = { git = "https://gitlab.com/tezos/tezos.git" }
-tezos-smart-rollup-storage = { git = "https://gitlab.com/tezos/tezos.git" }
+mavryk-smart-rollup = { git = "https://gitlab.com/mavryk-network/mavryk-protocol.git" }
+mavryk-smart-rollup-host = { git = "https://gitlab.com/mavryk-network/mavryk-protocol.git" }
+mavryk-smart-rollup-core = { git = "https://gitlab.com/mavryk-network/mavryk-protocol.git" }
+mavryk-smart-rollup-mock = { git = "https://gitlab.com/mavryk-network/mavryk-protocol.git" }
+mavryk-smart-rollup-encoding = { git = "https://gitlab.com/mavryk-network/mavryk-protocol.git" }
+mavryk-smart-rollup-entrypoint = { git = "https://gitlab.com/mavryk-network/mavryk-protocol.git" }
+mavryk-smart-rollup-debug = { git = "https://gitlab.com/mavryk-network/mavryk-protocol.git" }
+mavryk-smart-rollup-panic-hook = { git = "https://gitlab.com/mavryk-network/mavryk-protocol.git" }
+mavryk-smart-rollup-storage = { git = "https://gitlab.com/mavryk-network/mavryk-protocol.git" }
 boa_ast = { git = "https://github.com/trilitech/boa.git", branch = "sam.finch@/context/expose-instruction-count" }
 boa_engine = { git = "https://github.com/trilitech/boa.git", branch = "sam.finch@/context/expose-instruction-count" }
 boa_gc = { git = "https://github.com/trilitech/boa.git", branch = "sam.finch@/context/expose-instruction-count" }

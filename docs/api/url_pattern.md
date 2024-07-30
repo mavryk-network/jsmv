@@ -1,9 +1,9 @@
 # 🧩 URLPattern
 
-`jstz`'s [`URLPattern`](hhttps://developer.mozilla.org/en-US/docs/Web/API/URLPattern) implementation is based on the [URL Pattern](https://urlpattern.spec.whatwg.org/) specification and using [`rust-urlpattern`](https://docs.rs/urlpattern/latest/urlpattern/).
+`jsmv`'s [`URLPattern`](hhttps://developer.mozilla.org/en-US/docs/Web/API/URLPattern) implementation is based on the [URL Pattern](https://urlpattern.spec.whatwg.org/) specification and using [`rust-urlpattern`](https://docs.rs/urlpattern/latest/urlpattern/).
 
 ::: danger
-⚠️ `jstz`'s implementation is not spec compliant ⚠️
+⚠️ `jsmv`'s implementation is not spec compliant ⚠️
 :::
 
 ## Example

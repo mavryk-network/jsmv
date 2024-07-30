@@ -1,6 +1,6 @@
 # 🪣 KV
 
-A persistent key-value database that can be used to store and retrieve JSON blobs built directly into the `jstz` runtime,
+A persistent key-value database that can be used to store and retrieve JSON blobs built directly into the `jsmv` runtime,
 available using the global `Kv` object.
 
 Data in `Kv` is stored as a persistent collection of key-value pairs, much like to properties of a JavaScript object or a Map object.

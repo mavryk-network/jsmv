@@ -1,10 +1,10 @@
 # 🆗 Response
 
-`jstz`'s [`Response`](https://developer.mozilla.org/en-US/docs/Web/API/Response) implementation is based on the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) specification.
+`jsmv`'s [`Response`](https://developer.mozilla.org/en-US/docs/Web/API/Response) implementation is based on the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) specification.
 The `Response` interface of the Fetch API represents the response to a request.
 
 ::: danger
-⚠️ `jstz`'s implementation is not spec compliant ⚠️
+⚠️ `jsmv`'s implementation is not spec compliant ⚠️
 :::
 
 ## Quick Start

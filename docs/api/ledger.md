@@ -1,7 +1,7 @@
 # 💰 Ledger
 
 The `Ledger` object maintains a persistent ledger of all accounts and their
-balances of L2 tez (stored as mutez). Additionally, the `Ledger` object stores the 'self address' of
+balances of L2 tez (stored as mumav). Additionally, the `Ledger` object stores the 'self address' of
 the smart function, which is the address of the smart function itself.
 
 All operations on `Ledger` are synchronous and atomic, committed if the request to the smart function suceeds.
@@ -24,7 +24,7 @@ console.log(Ledger.balance(Ledger.selfAddress)); // 420
 Transfers are performed using `Ledger.transfer()`:
 
 ```typescript
-Ledger.transfer(alice, 420); // Transfer 420 mutez to Alice from the balance of the smart function
+Ledger.transfer(alice, 420); // Transfer 420 mumav to Alice from the balance of the smart function
 console.log(Ledger.balance(alice)); // 420
 console.log(Ledger.balance(Ledger.selfAddress)); // 0
 ```
@@ -43,10 +43,10 @@ The `selfAddress` property of the `Ledger` object is the address of the smart fu
 
 ## Instance Methods
 
-### `Ledger.balance(address: Address): Mutez`
+### `Ledger.balance(address: Address): Mumav`
 
-Returns the balance of the given address in mutez, or `0` if the address is not in the ledger.
+Returns the balance of the given address in mumav, or `0` if the address is not in the ledger.
 
-### `Ledger.transfer(dst: Address, amount: Mutez): void`
+### `Ledger.transfer(dst: Address, amount: Mumav): void`
 
-Transfers the given amount of mutez from the balance of the smart function to the given address. If the smart function does not have enough balance, this throws an error.
+Transfers the given amount of mumav from the balance of the smart function to the given address. If the smart function does not have enough balance, this throws an error.

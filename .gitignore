@@ -14,12 +14,12 @@ result
 *.pdb
 
 # Used for manual testing
-octez-smart-rollup-wasm-debugger
+mavkit-smart-rollup-wasm-debugger
 
 # Used for running the sandbox
-octez-client
-octez-node
-octez-smart-rollup-node
+mavkit-client
+mavkit-node
+mavkit-smart-rollup-node
 
 # Logs from sandbox
 /logs
@@ -40,4 +40,4 @@ node_modules/
 .env
 
 # Required by the CLI
-crates/jstz_cli/jstz_kernel.wasm
+crates/jsmv_cli/jsmv_kernel.wasm

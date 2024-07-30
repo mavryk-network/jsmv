@@ -1871,7 +1871,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "jstz_api"
+name = "jsmv_api"
 version = "0.1.0"
 dependencies = [
  "anyhow",
@@ -1886,19 +1886,19 @@ dependencies = [
  "fastrand",
  "form_urlencoded",
  "http 1.0.0",
- "jstz_core",
- "jstz_crypto",
- "jstz_wpt",
+ "jsmv_core",
+ "jsmv_crypto",
+ "jsmv_wpt",
+ "mavryk-smart-rollup",
  "serde",
  "serde_json",
- "tezos-smart-rollup",
  "tokio",
  "url",
  "urlpattern",
 ]
 
 [[package]]
-name = "jstz_cli"
+name = "jsmv_cli"
 version = "0.1.0"
 dependencies = [
  "ansi_term",
@@ -1916,14 +1916,17 @@ dependencies = [
  "futures-util",
  "hex",
  "http 1.0.0",
- "jstz_api",
- "jstz_core",
- "jstz_crypto",
- "jstz_kernel",
- "jstz_proto",
- "jstz_rollup",
+ "jsmv_api",
+ "jsmv_core",
+ "jsmv_crypto",
+ "jsmv_kernel",
+ "jsmv_proto",
+ "jsmv_rollup",
+ "mavkit",
+ "mavryk-smart-rollup",
+ "mavryk-smart-rollup-mock",
+ "mavryk_crypto_rs",
  "nix 0.27.1",
- "octez",
  "rand 0.8.5",
  "reqwest",
  "reqwest-eventsource",
@@ -1935,16 +1938,13 @@ dependencies = [
  "signal-hook",
  "syntect",
  "tempfile",
- "tezos-smart-rollup",
- "tezos-smart-rollup-mock",
- "tezos_crypto_rs",
  "tiny-bip39",
  "tokio",
  "url",
 ]
 
 [[package]]
-name = "jstz_core"
+name = "jsmv_core"
 version = "0.1.0"
 dependencies = [
  "bincode",
@@ -1953,44 +1953,44 @@ dependencies = [
  "derive_more",
  "erased-serde",
  "getrandom",
+ "mavryk-smart-rollup-host",
  "serde",
- "tezos-smart-rollup-host",
 ]
 
 [[package]]
-name = "jstz_crypto"
+name = "jsmv_crypto"
 version = "0.1.0"
 dependencies = [
  "anyhow",
  "boa_gc",
  "derive_more",
  "hex",
+ "mavryk_crypto_rs",
  "proptest",
  "serde",
  "serde_json",
- "tezos_crypto_rs",
 ]
 
 [[package]]
-name = "jstz_kernel"
+name = "jsmv_kernel"
 version = "0.1.0"
 dependencies = [
  "bincode",
  "boa_engine",
  "http 1.0.0",
  "http-serde",
- "jstz_api",
- "jstz_core",
- "jstz_crypto",
- "jstz_proto",
+ "jsmv_api",
+ "jsmv_core",
+ "jsmv_crypto",
+ "jsmv_proto",
+ "mavryk-smart-rollup",
+ "mavryk_crypto_rs",
  "num-traits",
  "serde",
- "tezos-smart-rollup",
- "tezos_crypto_rs",
 ]
 
 [[package]]
-name = "jstz_node"
+name = "jsmv_node"
 version = "0.1.0"
 dependencies = [
  "actix-web",
@@ -2001,10 +2001,10 @@ dependencies = [
  "env_logger",
  "futures-util",
  "hex",
- "jstz_api",
- "jstz_crypto",
- "jstz_proto",
- "octez",
+ "jsmv_api",
+ "jsmv_crypto",
+ "jsmv_proto",
+ "mavkit",
  "parking_lot 0.12.1",
  "reqwest",
  "serde",
@@ -2016,7 +2016,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "jstz_proto"
+name = "jsmv_proto"
 version = "0.1.0"
 dependencies = [
  "boa_engine",
@@ -2026,17 +2026,17 @@ dependencies = [
  "erased-serde",
  "http 1.0.0",
  "http-serde",
- "jstz_api",
- "jstz_core",
- "jstz_crypto",
+ "jsmv_api",
+ "jsmv_core",
+ "jsmv_crypto",
+ "mavryk-smart-rollup",
+ "mavryk-smart-rollup-mock",
  "serde",
  "serde_json",
- "tezos-smart-rollup",
- "tezos-smart-rollup-mock",
 ]
 
 [[package]]
-name = "jstz_rollup"
+name = "jsmv_rollup"
 version = "0.1.0"
 dependencies = [
  "anyhow",
@@ -2047,17 +2047,17 @@ dependencies = [
  "figment",
  "fs_extra",
  "hex",
- "octez",
+ "mavkit",
+ "mavryk-smart-rollup-host",
+ "mavryk-smart-rollup-installer",
+ "mavryk-smart-rollup-installer-config",
+ "mavryk_crypto_rs",
  "serde",
  "serde_json",
- "tezos-smart-rollup-host",
- "tezos-smart-rollup-installer",
- "tezos-smart-rollup-installer-config",
- "tezos_crypto_rs",
 ]
 
 [[package]]
-name = "jstz_wpt"
+name = "jsmv_wpt"
 version = "0.1.0"
 dependencies = [
  "anyhow",
@@ -2224,6 +2224,226 @@ name = "log"
 version = "0.4.20"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b5e6163cb8c49088c2c36f57875e58ccd8c87c7427f7fbd50ea6710b2f3f2e8f"
+
+[[package]]
+name = "mavkit"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "hex",
+ "regex",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "signal-hook",
+]
+
+[[package]]
+name = "mavryk-smart-rollup"
+version = "0.2.2"
+source = "git+https://gitlab.com/mavryk-network/mavryk-protocol.git#75b94c6b1a9ff7578b757d068b6fae62adb0708a"
+dependencies = [
+ "hermit",
+ "hex",
+ "mavryk-smart-rollup-core",
+ "mavryk-smart-rollup-debug",
+ "mavryk-smart-rollup-encoding",
+ "mavryk-smart-rollup-entrypoint",
+ "mavryk-smart-rollup-host",
+ "mavryk-smart-rollup-mock",
+ "mavryk-smart-rollup-storage",
+ "mavryk_crypto_rs",
+ "mavryk_data_encoding",
+]
+
+[[package]]
+name = "mavryk-smart-rollup-constants"
+version = "0.2.2"
+source = "git+https://gitlab.com/mavryk-network/mavryk-protocol.git#75b94c6b1a9ff7578b757d068b6fae62adb0708a"
+
+[[package]]
+name = "mavryk-smart-rollup-core"
+version = "0.2.2"
+source = "git+https://gitlab.com/mavryk-network/mavryk-protocol.git#75b94c6b1a9ff7578b757d068b6fae62adb0708a"
+dependencies = [
+ "mavryk-smart-rollup-constants",
+]
+
+[[package]]
+name = "mavryk-smart-rollup-debug"
+version = "0.2.2"
+source = "git+https://gitlab.com/mavryk-network/mavryk-protocol.git#75b94c6b1a9ff7578b757d068b6fae62adb0708a"
+dependencies = [
+ "mavryk-smart-rollup-core",
+ "mavryk-smart-rollup-host",
+]
+
+[[package]]
+name = "mavryk-smart-rollup-encoding"
+version = "0.2.2"
+source = "git+https://gitlab.com/mavryk-network/mavryk-protocol.git#75b94c6b1a9ff7578b757d068b6fae62adb0708a"
+dependencies = [
+ "hex",
+ "mavryk-smart-rollup-core",
+ "mavryk-smart-rollup-host",
+ "mavryk_crypto_rs",
+ "mavryk_data_encoding",
+ "mavryk_data_encoding_derive",
+ "nom",
+ "num-bigint 0.3.3",
+ "num-traits",
+ "regex",
+ "thiserror",
+ "time",
+]
+
+[[package]]
+name = "mavryk-smart-rollup-entrypoint"
+version = "0.2.2"
+source = "git+https://gitlab.com/mavryk-network/mavryk-protocol.git#75b94c6b1a9ff7578b757d068b6fae62adb0708a"
+dependencies = [
+ "dlmalloc",
+ "mavryk-smart-rollup-core",
+ "mavryk-smart-rollup-debug",
+ "mavryk-smart-rollup-host",
+ "mavryk-smart-rollup-panic-hook",
+]
+
+[[package]]
+name = "mavryk-smart-rollup-host"
+version = "0.2.2"
+source = "git+https://gitlab.com/mavryk-network/mavryk-protocol.git#75b94c6b1a9ff7578b757d068b6fae62adb0708a"
+dependencies = [
+ "mavryk-smart-rollup-core",
+ "mavryk_crypto_rs",
+ "mavryk_data_encoding",
+ "thiserror",
+]
+
+[[package]]
+name = "mavryk-smart-rollup-installer"
+version = "0.2.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "aa976acd6bf0d9f75b7abb79961ec76f836608ee67a9661ce2a2ee2db5e52e85"
+dependencies = [
+ "clap",
+ "hex",
+ "mavryk-smart-rollup-encoding",
+ "mavryk-smart-rollup-host",
+ "mavryk-smart-rollup-installer-config",
+ "mavryk_data_encoding",
+ "serde_yaml",
+ "thiserror",
+ "wasm-gen",
+]
+
+[[package]]
+name = "mavryk-smart-rollup-installer-config"
+version = "0.2.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "11b8db0c0661b527c4479906303f02f064cacba84127e068a17c70018fb07127"
+dependencies = [
+ "hex",
+ "mavryk-smart-rollup-core",
+ "mavryk-smart-rollup-encoding",
+ "mavryk-smart-rollup-host",
+ "mavryk_crypto_rs",
+ "mavryk_data_encoding",
+ "nom",
+ "serde",
+ "serde_yaml",
+ "thiserror",
+]
+
+[[package]]
+name = "mavryk-smart-rollup-mock"
+version = "0.2.2"
+source = "git+https://gitlab.com/mavryk-network/mavryk-protocol.git#75b94c6b1a9ff7578b757d068b6fae62adb0708a"
+dependencies = [
+ "hex",
+ "mavryk-smart-rollup-core",
+ "mavryk-smart-rollup-encoding",
+ "mavryk-smart-rollup-host",
+ "mavryk_crypto_rs",
+ "mavryk_data_encoding",
+]
+
+[[package]]
+name = "mavryk-smart-rollup-panic-hook"
+version = "0.2.2"
+source = "git+https://gitlab.com/mavryk-network/mavryk-protocol.git#75b94c6b1a9ff7578b757d068b6fae62adb0708a"
+dependencies = [
+ "mavryk-smart-rollup-core",
+]
+
+[[package]]
+name = "mavryk-smart-rollup-storage"
+version = "0.2.2"
+source = "git+https://gitlab.com/mavryk-network/mavryk-protocol.git#75b94c6b1a9ff7578b757d068b6fae62adb0708a"
+dependencies = [
+ "mavryk-smart-rollup-core",
+ "mavryk-smart-rollup-debug",
+ "mavryk-smart-rollup-encoding",
+ "mavryk-smart-rollup-host",
+ "thiserror",
+]
+
+[[package]]
+name = "mavryk_crypto_rs"
+version = "0.5.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e87c3213e23367a7a9998611d3f98b5ae0b2385d848cf5ca96b6592bbfa3a64a"
+dependencies = [
+ "anyhow",
+ "base58",
+ "byteorder 1.5.0",
+ "cryptoxide",
+ "ed25519-dalek",
+ "hex",
+ "libsecp256k1",
+ "num-bigint 0.3.3",
+ "num-traits",
+ "p256",
+ "rand 0.7.3",
+ "serde",
+ "strum",
+ "strum_macros",
+ "thiserror",
+ "zeroize",
+]
+
+[[package]]
+name = "mavryk_data_encoding"
+version = "0.5.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8bdc600b4fc14f7e60c595d54edf5a406962fceb5e5ae4195a5630b628433f6f"
+dependencies = [
+ "bit-vec",
+ "bitvec",
+ "hex",
+ "lazy_static",
+ "mavryk_crypto_rs",
+ "mavryk_data_encoding_derive",
+ "nom",
+ "num-bigint 0.3.3",
+ "num-traits",
+ "serde",
+ "thiserror",
+]
+
+[[package]]
+name = "mavryk_data_encoding_derive"
+version = "0.5.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "24bcc9ab0e4e37e4790c4d7e630112fea7a17b1a7634be44077c4166b724de88"
+dependencies = [
+ "lazy_static",
+ "once_cell",
+ "parse-display",
+ "proc-macro2",
+ "quote",
+ "syn 1.0.109",
+]
 
 [[package]]
 name = "mediatype"
@@ -2443,19 +2663,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9cf5f9dd3933bd50a9e1f149ec995f39ae2c496d31fd772c1fd45ebc27e902b0"
 dependencies = [
  "memchr",
-]
-
-[[package]]
-name = "octez"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "hex",
- "regex",
- "reqwest",
- "serde",
- "serde_json",
- "signal-hook",
 ]
 
 [[package]]
@@ -3610,212 +3817,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ff1bc3d3f05aff0403e8ac0d92ced918ec05b666a43f83297ccef5bea8a3d449"
 dependencies = [
  "winapi-util",
-]
-
-[[package]]
-name = "tezos-smart-rollup"
-version = "0.2.2"
-source = "git+https://gitlab.com/tezos/tezos.git#391c1f573b989ff8988d313b49b75310ea4f33ce"
-dependencies = [
- "hermit",
- "tezos-smart-rollup-core",
- "tezos-smart-rollup-debug",
- "tezos-smart-rollup-encoding",
- "tezos-smart-rollup-entrypoint",
- "tezos-smart-rollup-host",
- "tezos-smart-rollup-mock",
- "tezos-smart-rollup-storage",
- "tezos_crypto_rs",
- "tezos_data_encoding",
-]
-
-[[package]]
-name = "tezos-smart-rollup-constants"
-version = "0.2.2"
-source = "git+https://gitlab.com/tezos/tezos.git#391c1f573b989ff8988d313b49b75310ea4f33ce"
-
-[[package]]
-name = "tezos-smart-rollup-core"
-version = "0.2.2"
-source = "git+https://gitlab.com/tezos/tezos.git#391c1f573b989ff8988d313b49b75310ea4f33ce"
-dependencies = [
- "tezos-smart-rollup-constants",
-]
-
-[[package]]
-name = "tezos-smart-rollup-debug"
-version = "0.2.2"
-source = "git+https://gitlab.com/tezos/tezos.git#391c1f573b989ff8988d313b49b75310ea4f33ce"
-dependencies = [
- "tezos-smart-rollup-core",
- "tezos-smart-rollup-host",
-]
-
-[[package]]
-name = "tezos-smart-rollup-encoding"
-version = "0.2.2"
-source = "git+https://gitlab.com/tezos/tezos.git#391c1f573b989ff8988d313b49b75310ea4f33ce"
-dependencies = [
- "hex",
- "nom",
- "num-bigint 0.3.3",
- "num-traits",
- "regex",
- "tezos-smart-rollup-core",
- "tezos-smart-rollup-host",
- "tezos_crypto_rs",
- "tezos_data_encoding",
- "tezos_data_encoding_derive",
- "thiserror",
- "time",
-]
-
-[[package]]
-name = "tezos-smart-rollup-entrypoint"
-version = "0.2.2"
-source = "git+https://gitlab.com/tezos/tezos.git#391c1f573b989ff8988d313b49b75310ea4f33ce"
-dependencies = [
- "dlmalloc",
- "tezos-smart-rollup-core",
- "tezos-smart-rollup-debug",
- "tezos-smart-rollup-host",
- "tezos-smart-rollup-panic-hook",
-]
-
-[[package]]
-name = "tezos-smart-rollup-host"
-version = "0.2.2"
-source = "git+https://gitlab.com/tezos/tezos.git#391c1f573b989ff8988d313b49b75310ea4f33ce"
-dependencies = [
- "tezos-smart-rollup-core",
- "tezos_crypto_rs",
- "tezos_data_encoding",
- "thiserror",
-]
-
-[[package]]
-name = "tezos-smart-rollup-installer"
-version = "0.2.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "eb576c183fd245057dc06e16ab7a85218cd267a485854384aa4561e1472a9d64"
-dependencies = [
- "clap",
- "hex",
- "serde_yaml",
- "tezos-smart-rollup-encoding",
- "tezos-smart-rollup-host",
- "tezos-smart-rollup-installer-config",
- "tezos_data_encoding",
- "thiserror",
- "wasm-gen",
-]
-
-[[package]]
-name = "tezos-smart-rollup-installer-config"
-version = "0.2.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c5c24ddeeb7ae14755bd88485d4e013133474e68a56d1ab32e4a92ce5196004d"
-dependencies = [
- "hex",
- "nom",
- "serde",
- "serde_yaml",
- "tezos-smart-rollup-core",
- "tezos-smart-rollup-encoding",
- "tezos-smart-rollup-host",
- "tezos_crypto_rs",
- "tezos_data_encoding",
- "thiserror",
-]
-
-[[package]]
-name = "tezos-smart-rollup-mock"
-version = "0.2.2"
-source = "git+https://gitlab.com/tezos/tezos.git#391c1f573b989ff8988d313b49b75310ea4f33ce"
-dependencies = [
- "hex",
- "tezos-smart-rollup-core",
- "tezos-smart-rollup-encoding",
- "tezos-smart-rollup-host",
- "tezos_crypto_rs",
- "tezos_data_encoding",
-]
-
-[[package]]
-name = "tezos-smart-rollup-panic-hook"
-version = "0.2.2"
-source = "git+https://gitlab.com/tezos/tezos.git#391c1f573b989ff8988d313b49b75310ea4f33ce"
-dependencies = [
- "tezos-smart-rollup-core",
-]
-
-[[package]]
-name = "tezos-smart-rollup-storage"
-version = "0.2.2"
-source = "git+https://gitlab.com/tezos/tezos.git#391c1f573b989ff8988d313b49b75310ea4f33ce"
-dependencies = [
- "tezos-smart-rollup-core",
- "tezos-smart-rollup-debug",
- "tezos-smart-rollup-encoding",
- "tezos-smart-rollup-host",
- "thiserror",
-]
-
-[[package]]
-name = "tezos_crypto_rs"
-version = "0.5.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "284fa6f4be10eff67ca5b2f9e8ec9544be81a07223f6a4c8d3a49a13aecce768"
-dependencies = [
- "anyhow",
- "base58",
- "byteorder 1.5.0",
- "cryptoxide",
- "ed25519-dalek",
- "hex",
- "libsecp256k1",
- "num-bigint 0.3.3",
- "num-traits",
- "p256",
- "rand 0.7.3",
- "serde",
- "strum",
- "strum_macros",
- "thiserror",
- "zeroize",
-]
-
-[[package]]
-name = "tezos_data_encoding"
-version = "0.5.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "66c34be797025fcab7a9e417a4cc374925ee796af21f8d7df5e2330cdc2595af"
-dependencies = [
- "bit-vec",
- "bitvec",
- "hex",
- "lazy_static",
- "nom",
- "num-bigint 0.3.3",
- "num-traits",
- "serde",
- "tezos_crypto_rs",
- "tezos_data_encoding_derive",
- "thiserror",
-]
-
-[[package]]
-name = "tezos_data_encoding_derive"
-version = "0.5.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "82e0c104555ce4d8c790567d725dc49f519d721e114202e38e851c1ac5769f08"
-dependencies = [
- "lazy_static",
- "once_cell",
- "parse-display",
- "proc-macro2",
- "quote",
- "syn 1.0.109",
 ]
 
 [[package]]

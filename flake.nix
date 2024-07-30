@@ -49,11 +49,11 @@
               })
             else pkgs.clang;
 
-          jstz = pkgs.callPackage ./nix/jstz.nix {makeFrameworkFlags = makeFrameworkFlags;};
+          jsmv = pkgs.callPackage ./nix/jsmv.nix {makeFrameworkFlags = makeFrameworkFlags;};
         in {
           packages = {
-            inherit (jstz) jstz_core jstz_api jstz_crypto jstz_proto jstz_kernel jstz_cli js_jstz js_jstz-types;
-            default = jstz.jstz_kernel;
+            inherit (jsmv) jsmv_core jsmv_api jsmv_crypto jsmv_proto jsmv_kernel jsmv_cli js_jsmv js_jsmv-types;
+            default = jsmv.jsmv_kernel;
           };
 
           # Rust dev environment

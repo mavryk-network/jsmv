@@ -1,19 +1,19 @@
 # 🔗 URL
 
-`jstz`'s implementation of the `URL` API defines utilities for URL resolution and parsing according to the [URL specification](https://url.spec.whatwg.org/#urlsearchparams).
+`jsmv`'s implementation of the `URL` API defines utilities for URL resolution and parsing according to the [URL specification](https://url.spec.whatwg.org/#urlsearchparams).
 
 ## Quick Start
 
 There are two ways to create a URL: either as an absolute URL or a relative URL.
 
 ```typescript
-let url: URL = new URL(`tezos://${my_contract.address}/entrypoint`);
+let url: URL = new URL(`mavryk://${my_contract.address}/entrypoint`);
 let url2: URL = new URL("../entrypoint_2", url.href);
 ```
 
-Each `jstz` smart function is assigned a unique address, akin to an IP address, starting with `tz4` when the function is deployed.
-To decode these addresses, `jstz` employs its own URL scheme `tezos://`.
-An example URL for a `jstz` smart function would therefore be `tezos://tz4w42Gt5zkiGaHPm1ya4MgLomgkL1k7Dy7q/`.
+Each `jsmv` smart function is assigned a unique address, akin to an IP address, starting with `tz4` when the function is deployed.
+To decode these addresses, `jsmv` employs its own URL scheme `mavryk://`.
+An example URL for a `jsmv` smart function would therefore be `mavryk://tz4w42Gt5zkiGaHPm1ya4MgLomgkL1k7Dy7q/`.
 
 It's important to note that if the base URL or the resulting URL is not valid, the constructor will raise a `TypeError` exception.
 To check whether URLs can be parsed correctly, you can use the static method [`URL.canParse()`](#canParse).
@@ -31,17 +31,17 @@ if (URL.canParse(relativePath, baseUrl)) {
 You can also modify a URL by setting its properties.
 
 ```typescript
-let url = new URL("tezos://tz4FakeFakeFakeFakeFakeFakeFakeDDy7q/"); // not a valid address, we'll have to change it
+let url = new URL("mavryk://tz4FakeFakeFakeFakeFakeFakeFakeDDy7q/"); // not a valid address, we'll have to change it
 url.hostname = Ledger.selfAddress;
 url.pathname = "accounts";
 url.hash = "#id";
-console.log(url.href); // tezos://tz4../accounts#id
+console.log(url.href); // mavryk://tz4../accounts#id
 ```
 
 The [`URLSearchParams`](./url_search_params.md) API may be used to build and manipulate search parameters. To get the search parameters from the URL, you can make use of the `.searchParams` instance property.
 
 ```typescript
-let url = new URL(`tezos://${address}/?first_name=Dave`);
+let url = new URL(`mavryk://${address}/?first_name=Dave`);
 switch (url.searchParams.get("first_name")) {
   case "Jim":
     url.searchParams.set("last_name", "Jones");
@@ -76,7 +76,7 @@ The host, a string containing the hostname (see below), followed by a ':' and th
 
 ### `hostname: string`
 
-The hostname of the URL. In `jstz` this will usually be a `tz4` address of a smart function.
+The hostname of the URL. In `jsmv` this will usually be a `tz4` address of a smart function.
 
 ### `href: string` {#href}
 
@@ -96,11 +96,11 @@ The URL path. This will always begin with a `'/'` and contains the part of the U
 
 ### `port: string`
 
-The port number of the URL. This has no special meaning within `jstz` and will not usually be present.
+The port number of the URL. This has no special meaning within `jsmv` and will not usually be present.
 
 ### `protocol: string`
 
-The protocol scheme of the URL. Within `jstz` this will usually be `tezos:`
+The protocol scheme of the URL. Within `jsmv` this will usually be `mavryk:`
 
 ### `search: string`
 

@@ -1,10 +1,10 @@
 # 🧰 API Reference
 
-This is a reference for all runtime APIs available in `jstz`. Since `jstz` is a JavaScript server runtime
-running on Tezos's smart optimistic rollups, some APIs are not available (e.g. `DOM`).
+This is a reference for all runtime APIs available in `jsmv`. Since `jsmv` is a JavaScript server runtime
+running on Mavryk's smart optimistic rollups, some APIs are not available (e.g. `DOM`).
 
 ::: danger
-⚠️ `jstz`'s APIs are currently very unstable and not compliant with specifications. ⚠️
+⚠️ `jsmv`'s APIs are currently very unstable and not compliant with specifications. ⚠️
 :::
 
 ## Web Platform APIs
@@ -20,7 +20,7 @@ running on Tezos's smart optimistic rollups, some APIs are not available (e.g. `
   - [`URLPattern`](./url_pattern.md)
   - [`URLSearchParams`](./url_search_params.md)
 
-## `jstz`-specific APIs
+## `jsmv`-specific APIs
 
 - [`Kv`](./kv.md)
 - [`Contract`](./contract.md)

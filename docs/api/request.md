@@ -1,9 +1,9 @@
 # 🙏 Request
 
-`jstz`'s [`Request`](https://developer.mozilla.org/en-US/docs/Web/API/Request) implementation is based on the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) specification. This API permits you to manipulate and inspect HTTP requests.
+`jsmv`'s [`Request`](https://developer.mozilla.org/en-US/docs/Web/API/Request) implementation is based on the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) specification. This API permits you to manipulate and inspect HTTP requests.
 
 ::: danger
-⚠️ `jstz`'s implementation is not spec compliant ⚠️
+⚠️ `jsmv`'s implementation is not spec compliant ⚠️
 :::
 
 ## Constructors

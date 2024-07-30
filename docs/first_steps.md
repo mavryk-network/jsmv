@@ -4,13 +4,13 @@ This guide will instruct through setting up and deploying your first _smart func
 
 ## Prerequisites
 
-1. Install `jstz`
-2. Install Octez
+1. Install `jsmv`
+2. Install Mavkit
 
 ## Hello World
 
-`jstz` is a JavaScript runtime for Tezos smart optimistic rollups that aims to be compatible with web conventions.
-`jstz` additionally has support for TypeScript, as our example below highlights.
+`jsmv` is a JavaScript runtime for Mavryk smart optimistic rollups that aims to be compatible with web conventions.
+`jsmv` additionally has support for TypeScript, as our example below highlights.
 
 In this example, the smart function takes a HTTP `Request` object and returns a `Response` object
 containing the message `Hello [name]` (which is also printed to the console).
@@ -62,7 +62,7 @@ First we must compile our TypeScript code to JavaScript using:
 npm run build
 ```
 
-Once built, we can deploy our smart function in a local `jstz` sandbox.
+Once built, we can deploy our smart function in a local `jsmv` sandbox.
 
 ### Running the Sandbox 🏝️
 
@@ -100,17 +100,17 @@ hello_world=tz4RQn8huKS9KLoHZxWkghytBzxwbn84JnSb
 
 ## Testing your Smart Function
 
-To test and run a smart function, we need to craft a HTTP request. To aid us with this, the `jstz` CLI provides a `curl`-inspired `run` command: `jstz run [url] --request --data`.
+To test and run a smart function, we need to craft a HTTP request. To aid us with this, the `jsmv` CLI provides a `curl`-inspired `run` command: `jsmv run [url] --request --data`.
 
-The URL that `jstz run` expects differs from a standard HTTP URL in the following ways:
+The URL that `jsmv run` expects differs from a standard HTTP URL in the following ways:
 
-1. The URL scheme must be `tezos` not `http` or `https`.
+1. The URL scheme must be `mavryk` not `http` or `https`.
 2. The hostname of the URL is the _smart function address_ (beginning with `tz4`).
 
 For example, run the following to send a `GET` request to our `hello_world` smart function.
 
 ```sh
-cargo run -- run "tezos://${hello_world}/?name=world"
+cargo run -- run "mavryk://${hello_world}/?name=world"
 ```
 
 If everything worked correctly, the logs should contain the message

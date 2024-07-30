@@ -7,20 +7,20 @@ build: build-cli-kernel
 
 .PHONY: build-bridge
 build-bridge:
-	@ligo compile contract contracts/jstz_bridge.mligo \
-		--module "Jstz_bridge" > contracts/jstz_bridge.tz
+	@ligo compile contract contracts/jsmv_bridge.mligo \
+		--module "Jsmv_bridge" > contracts/jsmv_bridge.tz
 
 .PHONY: build-kernel
 build-kernel:
-	@cargo build --package jstz_kernel --target wasm32-unknown-unknown --release
+	@cargo build --package jsmv_kernel --target wasm32-unknown-unknown --release
 
 .PHONY: build-cli-kernel
 build-cli-kernel: build-kernel
-	@cp target/wasm32-unknown-unknown/release/jstz_kernel.wasm crates/jstz_cli/jstz_kernel.wasm
+	@cp target/wasm32-unknown-unknown/release/jsmv_kernel.wasm crates/jsmv_cli/jsmv_kernel.wasm
 
 .PHONY: build-cli
 build-cli: build-cli-kernel
-	@cargo build --package jstz_cli --release
+	@cargo build --package jsmv_cli --release
 
 .PHONY: build-deps
 build-deps:
@@ -74,7 +74,7 @@ fmt: fmt-nix fmt-rust fmt-js
 fmt-check: fmt-nix-check fmt-rust-check fmt-js-check
 
 # FIXME: 
-# Clippy builds the CLI since the CLI must expand the macro containing the bytes of the `jstz_kernel.wasm` file. 
+# Clippy builds the CLI since the CLI must expand the macro containing the bytes of the `jsmv_kernel.wasm` file. 
 # So in order to lint the CLI we need to build the kernel
 .PHONY: lint
 lint: build-cli-kernel

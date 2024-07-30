@@ -1,6 +1,6 @@
-# 👨‍⚖️ jstz
+# 👨‍⚖️ jsmv
 
-`jstz` (pronounced: "justice") is a JavaScript runtime powered by Tezos Smart Optimistic Rollups that uses [Boa](https://boajs.dev/) and is built in [Rust](https://www.rust-lang.org/).
+`jsmv` (pronounced: "justice") is a JavaScript runtime powered by Mavryk Smart Optimistic Rollups that uses [Boa](https://boajs.dev/) and is built in [Rust](https://www.rust-lang.org/).
 
 ## Install
 
@@ -11,7 +11,7 @@ make build-deps
 make build
 ```
 
-See [installing Octez](/CONTRIBUTING.md#installing-octez-🐙) for installing the necessary dependencies for running `jstz`.
+See [installing Mavkit](/CONTRIBUTING.md#installing-mavkit-🐙) for installing the necessary dependencies for running `jsmv`.
 
 ## Quick Start
 
@@ -24,14 +24,14 @@ cargo run -- sandbox start
 # Deploy smart function
 cargo run -- deploy index.js --name example
 # Send request to smart function
-cargo run -- run tezos://example/
+cargo run -- run mavryk://example/
 ```
 
 ## Documentation
 
 <!-- TODO: Host documentation using github pages -->
 
-For the latest `jstz` documentation, [click here]().
+For the latest `jsmv` documentation, [click here]().
 
 ## Contributing
 

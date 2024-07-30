@@ -1,7 +1,7 @@
 {
-  "name": "jstz-root",
+  "name": "jsmv-root",
   "private": true,
-  "description": "Associated packages for jstz 👨‍⚖️",
+  "description": "Associated packages for jsmv 👨‍⚖️",
   "authors": "TriliTech Ecosystems and Tools Team <contact@trili.tech>",
   "version": "0.0.0",
   "workspaces": [
@@ -18,8 +18,8 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
-    "@tezos/jstz": "^0.0.0",
-    "@tezos/jstz-types": "^0.0.0"
+    "@mavrykdynamics/jsmv": "^0.0.0",
+    "@mavrykdynamics/jsmv-types": "^0.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",

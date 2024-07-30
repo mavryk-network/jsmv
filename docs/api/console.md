@@ -1,9 +1,9 @@
 # 🎮 console
 
-An implementation of the Web standard [`console`](https://developer.mozilla.org/en-US/docs/Web/API/console) API suitable for logging and debugging `jstz` smart functions.
+An implementation of the Web standard [`console`](https://developer.mozilla.org/en-US/docs/Web/API/console) API suitable for logging and debugging `jsmv` smart functions.
 
 ::: danger
-⚠️ `jstz`'s implementation is not spec compliant ⚠️
+⚠️ `jsmv`'s implementation is not spec compliant ⚠️
 :::
 
 ## Quick start
@@ -36,14 +36,14 @@ function parseURL(arg: unknown) {
 
 ### Logging objects
 
-When debugging `jstz` smart functions it is often useful to log the value of an object.
+When debugging `jsmv` smart functions it is often useful to log the value of an object.
 A common mistake is to try log an object directly, for example:
 
 ```typescript
 console.log({ name: "Dave", age: 42 }); // [object Object]
 ```
 
-This is because the `jstz` implementation of `console` doesn't support inspecting objects. A simple workaround is to use `JSON.stringify`:
+This is because the `jsmv` implementation of `console` doesn't support inspecting objects. A simple workaround is to use `JSON.stringify`:
 
 ```typescript
 const dave = { name: "Dave", age: 42 };

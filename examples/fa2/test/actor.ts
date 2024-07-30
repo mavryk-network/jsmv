@@ -21,7 +21,7 @@ async function handler(request: Request): Promise<Response> {
         ];
 
         return await Contract.call(
-          new Request(`tezos://${target}/transfer`, {
+          new Request(`mavryk://${target}/transfer`, {
             method: "POST",
             body: JSON.stringify(transfers),
           }),
@@ -42,7 +42,7 @@ async function handler(request: Request): Promise<Response> {
         }));
 
         return await Contract.call(
-          new Request(`tezos://${target}/update_operators`, {
+          new Request(`mavryk://${target}/update_operators`, {
             method: "PUT",
             body: JSON.stringify(body),
           }),

@@ -2,7 +2,7 @@
 name: 📚 Web/runtime APIs documentation task
 about: Ticket for implementing a documentation for Web/runtime API
 title: "📚 Docs: <title>"
-labels: ["documentation", "jstz::api"]
+labels: ["documentation", "jsmv::api"]
 assignees: ""
 ---
 
@@ -16,7 +16,7 @@ Additional documentation:
 - [mdn docs](link)
 - [`deno` docs](link)
 - [Cloudflare workers docs](link)
-- [`jstz` docs](https://trilitech.github.io/jstz/)
+- [`jsmv` docs](https://trilitech.github.io/jsmv/)
 
-The documentation is to be added to the `jstz` vitepress documentation site.
+The documentation is to be added to the `jsmv` vitepress documentation site.
 See [CONTRIBUTING](/CONTRIBUTING.md#documentation-) for more information to contribute to the documentation.

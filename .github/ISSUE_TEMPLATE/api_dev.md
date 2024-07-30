@@ -2,7 +2,7 @@
 name: 🚧 Web/runtime APIs developer task
 about: Ticket for implementing a new Web/runtime API
 title: "🚧 API: <title>"
-labels: ["dev-task", "jstz::api"]
+labels: ["dev-task", "jsmv::api"]
 assignees: ""
 ---
 

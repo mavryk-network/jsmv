@@ -3,7 +3,7 @@
 An implementation of the Web standard encoding API.
 The Encoding API provides a mechanism for handling text in various character encodings, including legacy non-UTF-8 encodings.
 
-::: danger ⚠️ jstz's implementation is not fully spec compliant ⚠️ :::
+::: danger ⚠️ jsmv's implementation is not fully spec compliant ⚠️ :::
 
 ## Interface
 

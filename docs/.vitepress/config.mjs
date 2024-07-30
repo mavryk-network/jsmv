@@ -3,8 +3,8 @@ import { defineConfig } from "vitepress";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   titleTemplate: false,
-  title: "👨‍⚖️ jstz",
-  description: "A JavaScript runtime powered by Tezos smart optimistic rollups",
+  title: "👨‍⚖️ jsmv",
+  description: "A JavaScript runtime powered by Mavryk smart optimistic rollups",
   lang: "en-US",
   head: [
     [
@@ -15,7 +15,7 @@ export default defineConfig({
       },
     ],
   ],
-  base: "/jstz/",
+  base: "/jsmv/",
   themeConfig: {
     search: {
       provider: "local",
@@ -51,7 +51,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: "github", link: "https://github.com/trilitech/jstz/" },
+      { icon: "github", link: "https://github.com/trilitech/jsmv/" },
     ],
   },
 });

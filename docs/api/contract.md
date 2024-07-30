@@ -1,6 +1,6 @@
 # 📜 Contract
 
-The `Contract` namespace provides an API to create and call`jstz` smart functions.
+The `Contract` namespace provides an API to create and call`jsmv` smart functions.
 New smart functions can be created with the `Contract.create()` method
 and `Contract.call()` is used for calling other smart functions.
 
@@ -23,14 +23,14 @@ returning a _promise_ which will resolve to the address of the new function.
 
 Once a smart function is deployed we may call it from another smart function using the
 `Contract.call()` method. To call a smart function we create a new [Request](request.md) object with
-scheme `tezos` and the address as the hostname.
+scheme `mavryk` and the address as the hostname.
 
 ```typescript
 async function handler(_: Request): Promise<Response> {
   const newAddress = await Contract.create(
     "export default handler () => new Response()",
   );
-  return Contract.call(new Request(`tezos://${newAddress}`));
+  return Contract.call(new Request(`mavryk://${newAddress}`));
 }
 ```
 
@@ -38,16 +38,16 @@ async function handler(_: Request): Promise<Response> {
 
 ### `Contract.call(request: Request): Promise<Response>`
 
-Calls a `jstz` smart function with the given request, returning a promise that resolves to an
+Calls a `jsmv` smart function with the given request, returning a promise that resolves to an
 HTTP [`Response`](response.md) object.
 
 - **request**: An HTTP [`Request`](request.md) object.
-  The URL scheme _must_ be `tezos` and the host _must_ be the address of a deployed `jstz` smart function.
+  The URL scheme _must_ be `mavryk` and the host _must_ be the address of a deployed `jsmv` smart function.
   The `Referer` header _must_ not be set.
 
 ### `Contract.create(code : string): Promise<Address>`
 
-Creates and deploys a new `jstz` smart function with the given code, returning a promise that resolves to the address of the newly deployed smart function.
+Creates and deploys a new `jsmv` smart function with the given code, returning a promise that resolves to the address of the newly deployed smart function.
 
 - **code**: A `string` containing an ECMAscript module.
   The module _must_ define a default export of type `(request: Request) => Response | Promise<Response>`.

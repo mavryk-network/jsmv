@@ -1,4 +1,4 @@
-# `jstz` FA2 👨‍⚖️
+# `jsmv` FA2 👨‍⚖️
 
 This is a simple FA2 smart function that allows users to:
 
@@ -52,5 +52,5 @@ npm run build:test
 fa2=tz4...
 cargo run -- deploy --self-address $tz4 --balance 0 --function-code "$(cat dist/test/index.js)"
 scenario=tz4...
-cargo run -- run "tezos://$scenario/?fa2=$fa2" $tz4
+cargo run -- run "mavryk://$scenario/?fa2=$fa2" $tz4
 ```
